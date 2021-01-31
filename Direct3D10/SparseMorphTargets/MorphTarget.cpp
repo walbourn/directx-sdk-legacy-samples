@@ -676,7 +676,7 @@ HRESULT CMorphTargetManager::Create( ID3D10Device* pd3dDevice, WCHAR* szMeshFile
     }
 
     // Get the X and Y base res for the data
-    float fRes = sqrt( ( float )m_fileHeader.NumBaseVerts );
+    float fRes = sqrtf( ( float )m_fileHeader.NumBaseVerts );
     m_XRes = ( UINT )fRes + 1;
     m_YRes = m_XRes;
 
