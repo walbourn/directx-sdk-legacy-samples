@@ -1259,7 +1259,8 @@ BOOL WINAPI DXUTGetMonitorInfo( HMONITOR hMonitor, LPMONITORINFO lpMonitorInfo )
         HMODULE hUser32 = GetModuleHandle( L"USER32" );
         if( hUser32 )
         {
-            OSVERSIONINFOA osvi = {0}; osvi.dwOSVersionInfoSize = sizeof( osvi );
+            OSVERSIONINFOA osvi = { sizeof(osvi) };
+#pragma warning(suppress : 4996)
             GetVersionExA( ( OSVERSIONINFOA* )&osvi );
             bool bNT = ( VER_PLATFORM_WIN32_NT == osvi.dwPlatformId );
             s_pFnGetMonitorInfo = ( LPGETMONITORINFO )( bNT ? GetProcAddress( hUser32,
@@ -1376,7 +1377,10 @@ HRESULT WINAPI DXUTTrace( const CHAR* strFile, DWORD dwLine, HRESULT hr,
     if( bPopMsgBox && bShowMsgBoxOnError == false )
         bPopMsgBox = false;
 
-    return DXTrace( strFile, dwLine, hr, strMsg, bPopMsgBox );
+    WCHAR szFile[MAX_PATH] = {};
+    MultiByteToWideChar(CP_UTF8, 0, strFile, -1, szFile, MAX_PATH);
+
+    return DXTrace(szFile, dwLine, hr, strMsg, bPopMsgBox);
 }
 
 

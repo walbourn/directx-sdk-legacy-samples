@@ -6843,9 +6843,9 @@ void DXUTBlendColor::Blend( UINT iState, float fElapsedTime, float fRate )
 
 
 //--------------------------------------------------------------------------------------
-void CDXUTElement::SetTexture( UINT iTexture, RECT* prcTexture, D3DCOLOR defaultTextureColor )
+void CDXUTElement::SetTexture( UINT iiTexture, RECT* prcTexture, D3DCOLOR defaultTextureColor )
 {
-    this->iTexture = iTexture;
+    this->iTexture = iiTexture;
 
     if( prcTexture )
         rcTexture = *prcTexture;
@@ -6857,10 +6857,10 @@ void CDXUTElement::SetTexture( UINT iTexture, RECT* prcTexture, D3DCOLOR default
 
 
 //--------------------------------------------------------------------------------------
-void CDXUTElement::SetFont( UINT iFont, D3DCOLOR defaultFontColor, DWORD dwTextFormat )
+void CDXUTElement::SetFont( UINT iiFont, D3DCOLOR defaultFontColor, DWORD idwTextFormat )
 {
-    this->iFont = iFont;
-    this->dwTextFormat = dwTextFormat;
+    this->iFont = iiFont;
+    this->dwTextFormat = idwTextFormat;
 
     FontColor.Init( defaultFontColor );
 }
