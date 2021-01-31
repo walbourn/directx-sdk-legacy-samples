@@ -1,0 +1,76 @@
+<!-- This is an example options file for the PRTCmdLine sample.  
+Change the values as desired, but keep the ordering of the nodes unchanged. -->
+<Options>
+  <Input>
+    <Mesh>
+      <!-- You can define any number of <Mesh> objects.  They will 
+      be concatenated together, and saved to <OutputConcatPRTMesh> and
+      <OutputConcatBlockerMesh>.  -->
+      <MeshFile>PRT Demo\wall_with_pillars.x</MeshFile>
+      <IsBlockerMesh>0</IsBlockerMesh>
+      <Translate.x>0.000000</Translate.x>
+      <Translate.y>0.000000</Translate.y>
+      <Translate.z>0.000000</Translate.z>
+      <Scale.x>1.000000</Scale.x>
+      <Scale.y>1.000000</Scale.y>
+      <Scale.z>1.000000</Scale.z>
+      <Yaw>0.000000</Yaw>
+      <Pitch>0.000000</Pitch>
+      <Roll>0.000000</Roll>
+      <SHMaterial>
+        <!-- You can define have any number of <SHMaterial> objects for each mesh.
+        They are read in order and will be used for the corresponding attribute 
+        mesh subset. If only 1 SHMaterial is defined, it will be used for all 
+        materials in the mesh. -->
+        <Diffuse.r>1.000000</Diffuse.r>
+        <Diffuse.g>1.000000</Diffuse.g>
+        <Diffuse.b>1.000000</Diffuse.b>
+        <Absorption.r>0.003000</Absorption.r>
+        <Absorption.g>0.003000</Absorption.g>
+        <Absorption.b>0.046000</Absorption.b>
+        <EnableSubsurfaceScattering>0</EnableSubsurfaceScattering>
+        <RelativeIndexOfRefraction>1.300000</RelativeIndexOfRefraction>
+        <ReducedScattering.r>2.000000</ReducedScattering.r>
+        <ReducedScattering.g>2.000000</ReducedScattering.g>
+        <ReducedScattering.b>2.000000</ReducedScattering.b>
+      </SHMaterial>
+    </Mesh>
+  </Input>
+  <Settings>
+    <Order>6</Order>
+    <NumRays>1024</NumRays>
+    <NumBounces>1</NumBounces>
+    <LengthScale>25.000000</LengthScale>
+    <NumChannels>3</NumChannels>
+    <Compression>
+      <EnableCompression>1</EnableCompression>
+      <NumClusters>1</NumClusters>
+      <Quality>2</Quality>
+      <NumPCA>24</NumPCA>
+    </Compression>
+    <MeshTessellation>
+      <EnableTessellation>0</EnableTessellation>
+      <RobustMeshRefine>1</RobustMeshRefine>
+      <RobustMeshRefineMinEdgeLength>0.000000</RobustMeshRefineMinEdgeLength>
+      <RobustMeshRefineMaxSubdiv>2</RobustMeshRefineMaxSubdiv>
+      <AdaptiveDL>1</AdaptiveDL>
+      <AdaptiveDLMinEdgeLength>0.030000</AdaptiveDLMinEdgeLength>
+      <AdaptiveDLThreshold>0.000080</AdaptiveDLThreshold>
+      <AdaptiveDLMaxSubdiv>3</AdaptiveDLMaxSubdiv>
+      <AdaptiveBounce>0</AdaptiveBounce>
+      <AdaptiveBounceMinEdgeLength>0.030000</AdaptiveBounceMinEdgeLength>
+      <AdaptiveBounceThreshold>0.000080</AdaptiveBounceThreshold>
+      <AdaptiveBounceMaxSubdiv>3</AdaptiveBounceMaxSubdiv>
+    </MeshTessellation>
+  </Settings>
+  <!-- If the <Output> node is missing, the tool will pick good defaults based on the file 
+  name of this XML file which can be useful for batch processing -->
+  <Output>
+    <OutputConcatPRTMesh>meshConcat.x</OutputConcatPRTMesh>
+    <OutputConcatBlockerMesh>blockerConcat.x</OutputConcatBlockerMesh>
+    <OutputTessellatedMesh>tesslatedMesh.x</OutputTessellatedMesh>
+    <BinaryXFile>0</BinaryXFile>
+    <OutputPRTBuffer>prtbuffer.prt</OutputPRTBuffer>
+    <OutputCompPRTBuffer>prtCompBuffer.pca</OutputCompPRTBuffer>
+  </Output>
+</Options>

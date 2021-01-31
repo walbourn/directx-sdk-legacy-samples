@@ -1,0 +1,1192 @@
+// This document is for informational purposes only.  Microsoft cannot guarantee the accuracy of any information 
+// presented after the date of publication.
+// MICROSOFT MAKES NO WARRANTIES, EXPRESS OR IMPLIED, IN THIS SUMMARY. 
+//
+// Copyright © Microsoft Corporation. All rights reserved.
+//
+// Microsoft are either registered trademarks or trademarks of Microsoft Corporation in the United States 
+// and/or other countries. The names of actual companies and products mentioned herein may be the 
+// trademarks of their respective owners. 
+//
+//
+// Disclaimer: To the best of our knowledge, the product names and capabilities are accurate.
+// If you are aware of any inaccuracies in this data, please inform us at directx@microsoft.com.
+//
+//
+// LinearTextureAddressing     - Rendering to non-square textures require w,h not 0-1 coordinates.
+// DoNotUseMinMaxBlendOp       - Indicates that the renderer should not use Min/Max blend modes.
+// MaximumResolution           - Limits maximum resolution of card to width specified ie: MaximumResolution = 800.
+// UseFixedFunction            - Forces card to use fixed function path
+// UnsupportedCard             - Unsupported video card (below GF2)
+// OldDriver                   - A driver we do not recommend because it's older than ones we have tested
+// InvalidDriver               - A driver which we know has serious issues
+// OldSoundDriver              - A sound driver we do not recommend because it's older than ones we have tested
+// InvalidSoundDriver          - A sound driver which we know has serious issues
+// EnableStopStart             - Sound card supports fast calls to stop and start buffer functions
+// SafeMode                    - All rendering options set to their lowest (most safe) setting
+// DisableDriverManagement     - Specifies that Direct3D should manage resources instead of the driver.
+// ForceShader                 - Forces the search for valid shaders to start at a value other than the max the card supports ie: ForceShader=14
+// UseAnisotropicFilter        - For high end cards will use Anisotropic filtering instead of trilinear on environments
+// UMA                         - UMA card, base video memory on system memory size (0-64 = 8Meg, 6-128 = 16Meg, 128-256 = 32Meg, 256+ = 64Meg)
+// DisableAlphaRenderTargets   - Do not allow render targets that require an alpha format
+// DisableRenderTargets        - Disable all render targets
+// PrototypeCard               - Warning for known prototype video cards (For example prototype XBOX GF3 test cards)
+// DisableSpecular             - Disable specular in menu and game
+//
+//
+Requirements
+    OS=Win98
+    CpuSpeed=733
+    Memory=128
+    VideoMemory=64
+    DirectX=9.0c
+    DiskSpace=100
+    break
+
+
+ApplyToAll
+    // Universal property here
+    break
+
+
+///////////////////////////////////////////////////
+//
+// Audio cards
+//
+//////////////////////////////////////////////////
+
+AudioVendor = 0x1102 "Creative"
+AudioVendor = 0x1274 "Creative"
+0x0004 = "SB Audigy"
+    EnableStopStart
+    break
+0x0002 = "SB Live!"
+    EnableStopStart
+    break
+0x1371 = "Sound Blaster PCI"
+0x7002 = "SB Live!"
+
+AudioVendor = 0x8086 "Intel"
+0x2445 = "Integrated Audio"
+0x2485 = "YAMAHA AC-XG"
+0x24c5 = "SoundMAX"
+0x24d5 = "SoundMAX"
+
+AudioVendor = 0x13F6 "C-Media"
+0x0111 = "Wave Device"
+
+AudioVendor = 0x1039 "Avance"
+0x7012 = "AC97"
+
+AudioVendor = 0x10de "nVidia"
+0x10b0 = "nForce"
+    if driver <= 5.10.2813.0
+        OldSoundDriver
+    endif
+
+AudioVendor = 0x1013 "Hercules"
+0x6003 = "Game Theater XP"
+
+AudioVendor = 0x125d "Diamond"
+0x1978 = "Monster Sound"
+
+AudioVendor = 0x12eb "Aureal"
+0x0001 = "Vortex 8820"
+
+AudioVendor = 0x1106 "Avance"
+0x3059 = "AC97 Audio"
+    if driver ==  5.10.0000.4010
+        OldSoundDriver
+    endif
+
+
+
+
+///////////////////////////////////////////////////
+//
+// 3DFX
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x1142  "3dfx"
+DisplayVendor = 0x10d9  "3dfx"
+DisplayVendor = 0x121a  "3dfx"
+0x0001 = "Voodoo 1"
+0x0002 = "Voodoo 2"
+0x0003 = "Banshee"
+0x0004 = "Banshee"
+0x0005 = "Voodoo 3"
+0x0007 = "Voodoo 4"
+0x0009 = "Voodoo 4 and 5"
+0x643d = "Rush (Alliance)"
+0x8626 = "Rush (Macronix)"
+    UnsupportedCard
+    break
+
+
+///////////////////////////////////////////////////
+//
+// ST MICROELECTRONICS
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x104a  "ST Microelectronics"
+0x0010 = "Kyro I/II"
+    UnsupportedCard
+    break
+
+
+///////////////////////////////////////////////////
+//
+// ATI
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x1002  "ATI"
+0x4158 = "Mach 32"
+0x4354 = "Mach 64"
+0x4358 = "Mach 64"
+0x4554 = "Mach 64"
+0x4654 = "Mach 64"
+0x4742 = "Rage Pro"
+0x4744 = "Rage Pro"
+0x4747 = "Rage Pro"
+0x4749 = "Rage Pro"
+0x474c = "Rage XC"
+0x474d = "Rage XL"
+0x474e = "Rage XC"
+0x474f = "Rage XL"
+0x4750 = "Rage Pro"
+0x4751 = "Rage Pro"
+0x4752 = "Rage XL"
+0x4753 = "Rage XC"
+0x4754 = "Rage II"
+0x4755 = "Rage II+"
+0x4756 = "Rage IIC"
+0x4757 = "Rage IIC"
+0x4758 = "Mach 64"
+0x4759 = "Rage IIC"
+0x475a = "Rage IIC"
+0x4c42 = "Rage LT Pro"
+0x4c44 = "Rage LT Pro"
+0x4c47 = "Rage LT"
+0x4c49 = "Rage LT Pro"
+0x4c50 = "Rage LT Pro"
+0x4c51 = "Rage LT Pro"
+0x4c45 = "Rage Mobility"
+0x4c46 = "Rage Mobility"
+0x4c4d = "Rage Mobility"
+0x4c4e = "Rage Mobility"
+0x4c52 = "Rage Mobility"
+0x4c53 = "Rage Mobility"
+0x4c54 = "Rage Mobility"
+0x4d46 = "Rage Mobility 128"
+0x4d4c = "Rage Mobility 128"
+0x5041 = "Rage 128 Pro"
+0x5042 = "Rage 128 Pro"
+0x5043 = "Rage 128 Pro"
+0x5044 = "Rage 128 Pro"
+0x5045 = "Rage 128 Pro"
+0x5046 = "Rage Fury Pro/MAXX"
+0x5047 = "Rage 128 Pro"
+0x5048 = "Rage 128 Pro"
+0x5049 = "Rage 128 Pro"
+0x504a = "Rage 128 Pro"
+0x504b = "Rage 128 Pro"
+0x504c = "Rage 128 Pro"
+0x504d = "Rage 128 Pro"
+0x504e = "Rage 128 Pro"
+0x504f = "Rage 128 Pro"
+0x5050 = "Rage 128 Pro"
+0x5051 = "Rage 128 Pro"
+0x5052 = "Rage 128 Pro"
+0x5053 = "Rage 128 Pro"
+0x5054 = "Rage 128 Pro"
+0x5055 = "Rage 128 Pro"
+0x5056 = "Rage 128 Pro"
+0x5057 = "Rage 128 Pro"
+0x5058 = "Rage 128 Pro"
+0x5245 = "Rage 128"
+0x5246 = "Rage 128"
+0x5247 = "Rage 128"
+0x524b = "Rage 128"
+0x524c = "Rage 128"
+0x5345 = "Rage 128"
+0x5346 = "Rage 128"
+0x5347 = "Rage 128"
+0x5348 = "Rage 128"
+0x534b = "Rage 128"
+0x534c = "Rage 128"
+0x534d = "Rage 128"
+0x534e = "Rage 128"
+0x5354 = "Mach 64"
+0x5446 = "Rage 128 Pro"
+0x544c = "Rage 128 Pro"
+0x5452 = "Rage 128 Pro"
+0x5453 = "Rage 128 Pro"
+0x5454 = "Rage 128 Pro"
+0x5455 = "Rage 128 Pro"
+0x5654 = "Mach 64"
+0x5655 = "Mach 64"
+0x5656 = "Mach 64"
+    UnsupportedCard
+    break
+
+0x4C59 = "MOBILITY RADEON"
+0x4237 = "RADEON 7000 IGP"
+0x5159 = "RADEON 7000 Series"
+0x515A = "RADEON 7000 Series"
+0x5144 = "RADEON 7200 Series"
+0x5157 = "RADEON 7500 Series"
+0x4C58 = "MOBILITY FIRE GL 7800"
+0x4437 = "MOBILITY RADEON 7000 IGP"
+0x4C57 = "MOBILITY RADEON 7500"
+    DoNotUseMinMaxBlendOp
+    if os < Win2K
+        if driver < 4.14.1.191
+            OldDriver
+        endif
+    endif
+    if os == Win2K
+        if driver == 5.13.1.3286
+            InvalidDriver
+        endif
+        if driver < 6.14.10.6368
+            OldDriver
+        endif
+    endif
+    if os > Win2K
+        if driver == 5.1.2001.1240
+            InvalidDriver
+        endif
+        if driver == 6.13.3286.0
+            InvalidDriver
+        endif
+        if driver < 6.14.10.6368
+            OldDriver
+        endif
+    endif
+    break
+    
+0x4242 = "RADEON 8500 AIW"
+0x514C = "RADEON 8500 Series"
+0x5148 = "FireGL 8800"
+0x4C64 = "MOBILITY FIRE GL 9000"
+0x5834 = "RADEON 9000 IGP Series"
+0x5942 = "RADEON 9000 Secondary"
+0x496E = "RADEON 9000 Series Secondary"
+0x496F = "RADEON 9000 Series Secondary"
+0x4966 = "RADEON 9000 Series"
+0x4967 = "RADEON 9000 Series"
+0x7834 = "RADEON 9000 XT IGP Series"
+0x5962 = "RADEON 9000"
+0x5834 = "RADEON 9100 IGP"
+0x514D = "RADEON 9100 Series"
+0x5940 = "RADEON 9200 PRO Secondary"
+0x5960 = "RADEON 9200 PRO"
+0x5D44 = "RADEON 9200 SE Secondary"
+0x5964 = "RADEON 9200 SE"
+0x5941 = "RADEON 9200 Secondary"
+0x5961 = "RADEON 9200"
+0x5835 = "MOBILITY RADEON 9000 IGP Series"
+0x4C66 = "MOBILITY RADEON 9000"
+0x5C61 = "MOBILITY RADEON 9200"
+0x5C63 = "MOBILITY RADEON 9200"
+    ForceShader=14
+    DoNotUseMinMaxBlendOp
+    if os < Win2K
+        if driver < 4.14.1.191
+            OldDriver
+        endif
+    endif
+    if os == Win2K
+        if driver == 5.13.1.3286
+            InvalidDriver
+        endif
+        if driver < 6.14.10.6368
+            OldDriver
+        endif
+    endif
+    if os > Win2K
+        if driver == 5.1.2001.1240
+            InvalidDriver
+        endif
+        if driver == 6.13.3286.0
+            InvalidDriver
+        endif
+        if driver < 6.14.10.6368
+            OldDriver
+        endif
+    endif
+    break
+    
+0x4E65 = "RADEON 9500 PRO / 9700 Secondary"
+0x4E45 = "RADEON 9500 PRO / 9700"
+0x4164 = "RADEON 9500 Secondary"
+0x4169 = "RADEON 9500 Secondary"
+0x4144 = "RADEON 9500"
+0x4149 = "RADEON 9500"
+0x4170 = "RADEON 9600 Series Secondary"
+0x4171 = "RADEON 9600 Series Secondary"
+0x4172 = "RADEON 9600 Series Secondary"
+0x4150 = "RADEON 9600 Series"
+0x4151 = "RADEON 9600 Series"
+0x4152 = "RADEON 9600 Series"
+0x4E66 = "RADEON 9600 TX Secondary"
+0x4E46 = "RADEON 9600 TX"
+0x4E64 = "RADEON 9700 PRO Secondary"
+0x4E44 = "RADEON 9700 PRO"
+0x4E68 = "RADEON 9800 PRO Secondary"
+0x4E48 = "RADEON 9800 PRO"
+0x4168 = "RADEON 9800 SE Secondary"
+0x4148 = "RADEON 9800 SE"
+0x4E69 = "RADEON 9800 Secondary"
+0x4E6A = "RADEON 9800 XT Secondary"
+0x4E4A = "RADEON 9800 XT"
+0x4E49 = "RADEON 9800"
+0x4137 = "RADEON IGP 340"
+0x4337 = "RADEON IGP 340M"
+0x5B70 = "RADEON X300 Series Secondary"
+0x5B60 = "RADEON X300 Series"
+0x3E70 = "RADEON X600 Series Secondary"
+0x3E50 = "RADEON X600 Series"
+0x4174 = "FireGL T2 Secondary"
+0x4154 = "FireGL T2"
+0x4E67 = "FireGL X1 Secondary"
+0x4E47 = "FireGL X1"
+0x4167 = "FireGL Z1 Secondary"
+0x4147 = "FireGL Z1"
+0x4E6B = "FireGL X2-256/X2-256t Secondary"
+0x4E4B = "FireGL X2-256/X2-256t"
+0x4E54 = "MOBILITY FIRE GL T2/T2e"
+0x4E50 = "MOBILITY RADEON 9600/9700 Series"
+0x4A4E = "MOBILITY RADEON 9800"
+    //UseAnisotropicFilter
+    if os < Win2K
+        if driver == 4.14.1.191
+            ForceShader=14
+        endif
+        if driver < 4.14.1.191
+            OldDriver
+        endif
+    endif
+    if os == Win2K
+        if driver == 6.14.10.6378
+            ForceShader=14
+        endif
+        if driver < 6.14.10.6368
+            OldDriver
+        endif
+    endif
+    if os > Win2K
+        if driver == 6.14.10.6378
+            ForceShader=14
+        endif
+        if driver == 6.13.3286.0
+            InvalidDriver
+        endif
+        if driver < 6.14.10.6368
+            OldDriver
+        endif
+    endif
+    break
+
+0x5E6B = "RADEON X700 PRO Secondary"
+0x5E4B = "RADEON X700 PRO"
+0x5E6C = "RADEON X700 SE Secondary"
+0x5E6F = "RADEON X700 SE Secondary"
+0x5E4C = "RADEON X700 SE"
+0x5E4F = "RADEON X700 SE"
+0x5E6D = "RADEON X700 Secondary"
+0x5E4A = "RADEON X700 XT"
+0x5E4D = "RADEON X700"
+0x5E49 = "FireGL V3300"
+0x5E68 = "FireGL V5000 Secondary"
+0x5E48 = "FireGL V5000"
+0x4A69 = "RADEON X800 PRO Secondary"
+0x4A49 = "RADEON X800 PRO"
+0x4A6A = "RADEON X800 SE Secondary"
+0x4A6F = "RADEON X800 SE Secondary"
+0x556E = "RADEON X800 SE Secondary"
+0x4A4A = "RADEON X800 SE"
+0x4A4F = "RADEON X800 SE"
+0x554E = "RADEON X800 SE"
+0x556F = "RADEON X800 Secondary"
+0x4A68 = "RADEON X800 Series Secondary"
+0x4A6C = "RADEON X800 Series Secondary"
+0x5568 = "RADEON X800 Series Secondary"
+0x4A48 = "RADEON X800 Series"
+0x4A4C = "RADEON X800 Series"
+0x5548 = "RADEON X800 Series"
+0x4A74 = "RADEON X800 VE Secondary"
+0x4A54 = "RADEON X800 VE"
+0x556D = "RADEON X800 XL Secondary"
+0x554D = "RADEON X800 XL"
+0x4A70 = "RADEON X800 XT Platinum Edition Secondary"
+0x556A = "RADEON X800 XT Platinum Edition Secondary"
+0x4A50 = "RADEON X800 XT Platinum Edition"
+0x554A = "RADEON X800 XT Platinum Edition"
+0x4A6B = "RADEON X800 XT Secondary"
+0x4A4B = "RADEON X800 XT"
+0x554F = "RADEON X800"
+0x4B6B = "RADEON X850 PRO Secondary"
+0x5D6F = "RADEON X850 PRO Secondary"
+0x4B4B = "RADEON X850 PRO"
+0x5D4F = "RADEON X850 PRO"
+0x4B6A = "RADEON X850 SE Secondary"
+0x4B4A = "RADEON X850 SE"
+0x4B6C = "RADEON X850 XT Platinum Edition Secondary"
+0x5D6D = "RADEON X850 XT Platinum Edition Secondary"
+0x4B4C = "RADEON X850 XT Platinum Edition"
+0x5D4D = "RADEON X850 XT Platinum Edition"
+0x4B69 = "RADEON X850 XT Secondary"
+0x5D72 = "RADEON X850 XT Secondary"
+0x4B49 = "RADEON X850 XT"
+0x5D52 = "RADEON X850 XT"
+0x5D70 = "FireGL V7200 Secondary"
+0x5D50 = "FireGL V7200"
+0x4A6D = "FireGL X3-256 Secondary"
+0x4A4D = "FireGL X3-256"
+0x5460 = "MOBILITY RADEON X300"
+0x3150 = "MOBILITY RADEON X600"
+0x5D4A = "MOBILITY RADEON X800"
+Unknown = "Unknown"
+    //UseAnisotropicFilter
+    if os < Win2K
+        if driver == 4.14.1.191
+            ForceShader=14
+        endif
+        if driver < 4.14.1.191
+            OldDriver
+        endif
+    endif
+    if os == Win2K
+        if driver == 6.14.10.6378
+            ForceShader=14
+        endif
+        if driver < 6.14.10.6368
+            OldDriver
+        endif
+    endif
+    if os > Win2K
+        if driver == 6.14.10.6378
+            ForceShader=14
+        endif
+        if driver == 6.13.3286.0
+            InvalidDriver
+        endif
+        if driver < 6.14.10.6368
+            OldDriver
+        endif
+    endif
+    break
+
+///////////////////////////////////////////////////
+//
+// 3D Labs
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x104c  "3D Labs"
+DisplayVendor = 0x10ba  "3D Labs"
+DisplayVendor = 0x3d3d  "3D Labs"
+DisplayVendor = 0x1048  "3D Labs"
+0x0001 = "GLiNT 300SX"
+0x0002 = "GLiNT 500TX"
+0x0003 = "GLiNT"
+0x0004 = "Permedia"
+0x0005 = "Permedia"
+0x0006 = "GLiNT MX"
+0x0007 = "Permedia 2"
+0x0008 = "GLiNT G1"
+0x0009 = "Permedia 2"
+0x000b = "Oxygen Series R3"
+0x000d = "Oxygen Series R4"
+0x000e = "Oxygen Series Gamma2"
+0x0100 = "Permedia 2"
+0x0301 = "Permedia 2"
+0x1004 = "Permedia"
+0x3d04 = "Permedia 1"
+0x3d07 = "Permedia 2"
+0x8901 = "GLiNT"
+0x000a = "Permedia 3"
+0x000c = "Permedia 4"
+    UnsupportedCard
+    break
+
+
+///////////////////////////////////////////////////
+//
+// SiS
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x1039  "SiS"
+0x0204 = "6215"
+0x0205 = "6205"
+0x0305 = "305"
+0x6306 = "530"
+0x6326 = "6326"
+0x6325 = "650"
+0x0325 = "315"
+0x0330 = "Xabre 600"
+    UnsupportedCard
+    break
+
+
+///////////////////////////////////////////////////
+//
+// S3
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x5333  "S3"
+0x9102 = "Savage 2000"
+0x8a20 = "Savage 3D"
+0x8a21 = "Savage 3D S3"
+0x8a22 = "Savage 3D S4"
+0x8a23 = "Savage 3D S4"
+0x8a25 = "Savage4 ProSavage"
+0x8a26 = "ProSavage"
+0x8c10 = "Savage MX"
+0x8c12 = "Savage IX"
+0x8c22 = "SuperSavage 128 MX"
+0x8c2a = "SuperSavage 128 IX"
+0x8c2b = "SuperSavage 128 IX DDR"
+0x8c2c = "SuperSavage IX"
+0x8c2d = "SuperSavage IX DDR"
+0x8c2e = "SuperSavage IXC SDR"
+0x8c2f = "SuperSavage IXC DDR"
+0x8d04 = "ProSavage"
+0x5631 = "Virge"
+0x8811 = "Trio 64"
+0x8812 = "Trio 64"
+0x8814 = "Trio 64 Plus"
+0x8815 = "Aurora 128"
+0x883d = "Virge"
+0x8880 = "Virge"
+0x88c0 = "Virge"
+0x88c1 = "Virge"
+0x88d0 = "Virge"
+0x88d1 = "Virge"
+0x88f0 = "Virge"
+0x8901 = "Trio 64 DX"
+0x8904 = "Trio 3D"
+0x8a01 = "Virge DXGX"
+0x8a10 = "Virge GX2"
+0x8a13 = "Trio3D"
+0x8c00 = "Virge MX"
+0x8c01 = "Virge MX"
+0x8c02 = "Virge MXC"
+0x8c03 = "Virge MX"
+0x8d01 = "Graphics Twister"
+0x8d02 = "Graphics Twister"
+    UnsupportedCard
+    break
+0x8e00 = "DeltaChrome"
+0x8e01 = "DeltaChrome"
+0x8e02 = "DeltaChrome"
+0x8e03 = "DeltaChrome"
+0x8e04 = "DeltaChrome"
+0x8e05 = "DeltaChrome"
+    break
+
+///////////////////////////////////////////////////
+//
+// VIA
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x1106  "VIA"
+0x3122 = "CLE266"
+0x7205 = "KM400"
+    UnsupportedCard
+    break
+
+
+///////////////////////////////////////////////////
+//
+// MATROX
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x102b  "Matrox"
+0x0518 = "Millennium"
+0x0519 = "Millennium"
+0x051a = "Mystique"
+0x051b = "Millennium II"
+0x051f = "Millennium II"
+0x0d10 = "Mystique"
+0x1000 = "G100 PCI"
+0x1001 = "G100 AGP"
+0x0520 = "G200 PCI"
+0x0521 = "G200 AGP"
+0x1525 = "Fusion G450"
+0x0525 = "G400/450"
+0x2007 = "Mistral"
+0x2527 = "G550"
+    UnsupportedCard
+    break
+0x1527 = "Fusion G800"
+0x2537 = "Parhelia LX"
+0x0527 = "Parhelia 128"
+Unknown = "Unknown"
+    DisableSpecular
+    if os < Win2K
+        if driver < 4.13.01.1331
+            InvalidDriver
+        endif
+    endif
+    if os == Win2K
+        if driver < 5.13.01.1331
+            InvalidDriver
+        endif
+    endif
+    if os > Win2K
+        if driver < 6.13.01.1331
+            InvalidDriver
+        endif
+    endif
+    break
+
+///////////////////////////////////////////////////
+//
+// GUILLEMOT
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x14Af  "Guillemot"
+0x5810 = "TNT2"
+0x5820 = "TNT2 Ultra"
+0x5620 = "TNT2 M64"
+0x5020 = "GeForce 256"
+0x5008 = "TNT Vanta"
+0x4D20 = "TNT2 M64"
+    UnsupportedCard
+    break
+
+
+
+///////////////////////////////////////////////////
+//
+// NVIDIA
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x10b4  "nVidia"
+DisplayVendor = 0x12d2  "nVidia"
+DisplayVendor = 0x10de  "nVidia"
+
+0x1b1d = "Riva 128"
+0x0008 = "NV 1"
+0x0009 = "NV 1"
+0x0010 = "NV 2"
+0x0018 = "Riva 128"
+0x0019 = "Riva 128 ZX"
+0x0020 = "RIVA TNT"
+0x0028 = "RIVA TNT2/TNT2 Pro"
+0x00A0 = "Aladdin TNT2"
+0x002C = "Vanta/Vanta LT"
+0x0029 = "RIVA TNT2 Ultra"
+0x002D = "RIVA TNT2 Model 64/Model 64 Pro"
+0x002E = "TNT Vanta"
+0x002F = "TNT Vanta"
+    UnsupportedCard
+    break
+    
+0x0200 = "GeForce3"
+    if subsysid == 0
+        if revision == 0xa2 
+            PrototypeCard
+        endif
+    endif   
+    
+0x0100 = "GeForce 256"
+0x0101 = "GeForce DDR"
+0x0103 = "Quadro"
+0x0110 = "GeForce2 MX/MX 400"
+0x0111 = "GeForce2 MX 100/200"
+0x0113 = "Quadro2 MXR/EX/Go"
+0x01A0 = "GeForce2 Integrated GPU"
+0x0150 = "GeForce2 GTS/GeForce2 Pro"
+0x0151 = "GeForce2 Ti"
+0x0152 = "GeForce2 Ultra"
+0x0153 = "Quadro2 Pro"
+0x0170 = "GeForce4 MX 460"
+0x0171 = "GeForce4 MX 440"
+0x0172 = "GeForce4 MX 420"
+0x0173 = "GeForce4 MX 440-SE"
+0x0178 = "Quadro4 550 XGL"
+0x017A = "Quadro NVS"
+0x0181 = "GeForce4 MX 440 with AGP8X"
+0x0182 = "GeForce4 MX 440SE with AGP8X"
+0x0183 = "GeForce4 MX 420 with AGP8X"
+0x0185 = "GeForce4 MX 4000"
+0x0188 = "Quadro4 580 XGL"
+0x018A = "Quadro NVS with AGP8X"
+0x018B = "Quadro4 380 XGL"
+0x018C = "Quadro NVS 50 PCI"
+0x01F0 = "GeForce4 MX Integrated GPU"
+0x0201 = "GeForce3 Ti 200"
+0x0202 = "GeForce3 Ti 500"
+0x0203 = "Quadro DCC"
+0x0250 = "GeForce4 Ti 4600"
+0x0251 = "GeForce4 Ti 4400"
+0x0252 = "NV25"
+0x0253 = "GeForce4 Ti 4200"
+0x0258 = "Quadro4 900 XGL"
+0x0259 = "Quadro4 750 XGL"
+0x025B = "Quadro4 700 XGL"
+0x0280 = "GeForce4 Ti 4800"
+0x0281 = "GeForce4 Ti 4200 with AGP8X"
+0x0282 = "GeForce4 Ti 4800 SE"
+0x0288 = "Quadro4 980 XGL"
+0x0289 = "Quadro4 780 XGL"
+0x00FA = "GeForce PCX 5750"
+0x00FB = "GeForce PCX 5900"
+0x00FC = "GeForce PCX 5300"
+0x00FD = "Quadro PCI-E Series"
+0x00FE = "Quadro FX 1300"
+0x00FF = "GeForce PCX 4300"
+0x0112 = "GeForce2 Go"
+0x0174 = "GeForce4 440 Go"
+0x0175 = "GeForce4 420 Go"
+0x0176 = "GeForce4 420 Go 32M"
+0x0177 = "GeForce4 460 Go"
+0x0179 = "GeForce4 440 Go 64M"
+0x017D = "GeForce4 410 Go 16M"
+0x017C = "Quadro4 500 GoGL"
+0x0186 = "GeForce4 448 Go"
+0x0187 = "GeForce4 488 Go"
+0x018D = "GeForce4 448 Go"
+0x0286 = "GeForce4 4200 Go"
+0x028C = "Quadro4 700 GoGL"
+    if os < Win2K
+        if driver==4.13.1.1260
+            InvalidDriver
+        endif
+        if driver < 4.13.01.4071
+            OldDriver
+        endif
+    endif
+    if os == Win2K
+        if driver==5.13.1.1240
+            InvalidDriver
+        endif
+        if driver < 6.13.10.4071
+            OldDriver
+        endif
+    endif
+    if os > Win2K
+        if driver < 6.13.10.4071
+            OldDriver
+        endif
+    endif
+    break
+
+0x0327 = "GeForce FX 5100"
+0x0320 = "GeForce FX 5200"
+0x0321 = "GeForce FX 5200 Ultra"
+0x0322 = "GeForce FX 5200"
+0x0323 = "GeForce FX 5200LE"
+0x0326 = "GeForce FX 5500"
+0x0312 = "GeForce FX 5600"
+0x0314 = "GeForce FX 5600XT"
+0x031A = "GeForce FX Go5600"
+0x031B = "GeForce FX Go5650"
+0x0311 = "GeForce FX 5600 Ultra"
+0x0324 = "GeForce FX Go5200"
+0x0325 = "GeForce FX Go5250"
+0x0328 = "GeForce FX Go5200 32M/64M"
+0x0329 = "NV34MAP"
+0x032C = "GeForce FX Go53xx"
+0x032D = "GeForce FX Go5100"
+    ForceShader=14
+0x0301 = "GeForce FX 5800 Ultra"
+0x0302 = "GeForce FX 5800"
+0x0308 = "Quadro FX 2000"
+0x0309 = "Quadro FX 1000"
+0x0313 = "NV31"
+0x032A = "Quadro NVS 280 PCI"
+0x032B = "Quadro FX 500/FX 600"
+0x032F = "NV34GL"
+0x0330 = "GeForce FX 5900 Ultra"
+0x0331 = "GeForce FX 5900"
+0x0332 = "GeForce FX 5900XT"
+0x0333 = "GeForce FX 5950 Ultra"
+0x0334 = "GeForce FX 5900ZT"
+0x0338 = "Quadro FX 3000"
+0x033F = "Quadro FX 700"
+0x0341 = "GeForce FX 5700 Ultra"
+0x0342 = "GeForce FX 5700"
+0x0343 = "GeForce FX 5700LE"
+0x0344 = "GeForce FX 5700VE"
+0x0345 = "NV36"
+0x034E = "Quadro FX 1100"
+0x034F = "NV36GL"
+0x0316 = "NV31M"
+0x0317 = "NV31M Pro"
+0x031C = "Quadro FX Go700"
+0x031D = "NV31GLM"
+0x031E = "NV31GLM Pro"
+0x031F = "NV31GLM Pro"
+0x0347 = "GeForce FX Go5700"
+0x0348 = "GeForce FX Go5700"
+0x0349 = "NV36M Pro"
+0x034B = "NV36MAP"
+0x034C = "Quadro FX Go1000"
+0x00C8 = "GeForce Go 6800"
+0x00C9 = "GeForce Go 6800 Ultra"
+0x00CC = "Quadro FX Go1400"
+    if os < Win2K
+        if driver < 4.14.10.4467
+            LinearTextureAddressing
+        endif
+        if driver < 4.13.01.4071
+            OldDriver
+        endif
+    endif
+    if os == Win2K
+        if driver < 6.14.10.4467
+            LinearTextureAddressing
+        endif
+        if driver < 6.13.10.4071
+            OldDriver
+        endif
+    endif
+    if os > Win2K
+        if driver < 6.14.10.4467
+            LinearTextureAddressing
+        endif
+        if driver < 6.13.10.4071
+            OldDriver
+        endif
+    endif
+    break   
+
+0x0040 = "GeForce 6800 Ultra"
+0x0041 = "GeForce 6800"
+0x0042 = "GeForce 6800 LE"
+0x0043 = "NV40"
+0x0045 = "GeForce 6800 GT"
+0x0049 = "NV40GL"
+0x004E = "Quadro FX 4000"
+0x00C0 = "NV41"
+0x00C1 = "GeForce 6800"
+0x00C2 = "GeForce 6800 LE"
+0x00CC = "Quadro FX Go1400"
+0x00CD = "Quadro FX 3450/4000 SDI"
+0x00CE = "Quadro FX 1400"
+0x0140 = "GeForce 6600 GT"
+0x0141 = "GeForce 6600"
+0x0142 = "NV43"
+0x0143 = "NV43"
+0x0145 = "GeForce 6610 XL"
+0x014B = "NV43"
+0x014C = "NV43GL"
+0x014D = "NV43GL"
+0x014E = "Quadro FX 540"
+0x014F = "GeForce 6200"
+0x0160 = "NV44"
+0x0161 = "GeForce 6200 TurboCache(TM)"
+0x0162 = "NV44"
+0x0163 = "NV44"
+0x0165 = "Quadro NVS 285"
+0x016E = "NV44GL"
+0x0220 = "NV44"
+0x0221 = "NV44"
+0x0222 = "NV44"
+0x0211 = "GeForce 6800"
+0x0212 = "GeForce 6800 LE"
+0x0215 = "GeForce 6800 GT"
+0x00F0 = "GeForce 6800"
+0x00F1 = "GeForce 6600 GT"
+0x00F2 = "GeForce 6600"
+0x00F3 = "GeForce 6200"
+0x00F8 = "Quadro FX 3400/4400"
+0x00F9 = "GeForce 6800 Series GPU"
+0x0091 = "GeForce 7800 GTX"
+0x0140 = "NV43"
+0x0144 = "GeForce Go 6600"
+0x0147 = "NV43"
+0x0148 = "GeForce Go 6600"
+0x0149 = "NV43"
+0x014C = "NV43GL"
+0x0164 = "GeForce Go 6200"
+0x0167 = "GeForce Go 6200"
+0x0169 = "NV44M"
+0x016B = "NV44GLM"
+0x016C = "NV44GLM"
+0x016D = "NV44GLM"
+0x0228 = "NV44M"
+Unknown = "Unknown"
+    UseAnisotropicFilter
+    if os < Win2K
+        if driver < 4.14.10.4467
+            LinearTextureAddressing
+        endif
+        if driver < 4.13.01.4071
+            OldDriver
+        endif
+    endif
+    if os == Win2K
+        if driver < 6.14.10.4467
+            LinearTextureAddressing
+        endif
+        if driver < 6.13.10.4071
+            OldDriver
+        endif
+    endif
+    if os > Win2K
+        if driver < 6.14.10.4467
+            LinearTextureAddressing
+        endif
+        if driver < 6.13.10.4071
+            OldDriver
+        endif
+    endif
+    break   
+
+///////////////////////////////////////////////////
+//
+// INTEL
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x8086  "Intel"
+0x7121 = "810"
+0x7123 = "810"
+0x7125 = "810e"
+0x7127 = "810"
+0x1132 = "815"
+0x7800 = "740"
+0x1240 = "752"
+    UnsupportedCard
+    break
+0x3577 = "830M"
+0x2562 = "845G"
+0x3582 = "855GM"
+0x2572 = "865G"
+Unknown = "Unknown"
+    UMA
+    break
+
+
+///////////////////////////////////////////////////
+//
+// VIDEOLOGIC
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x1033  "VideoLogic"
+0x0046 = "PowerVR"
+0x0067 = "PowerVR2"
+    UnsupportedCard
+    break
+
+
+
+///////////////////////////////////////////////////
+//
+// TRIDENT
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x1023  "Trident"
+0x8420 = "CyberBlade i7"
+0x8820 = "CyberBlade XP"
+0x9320 = "Cyber9320"
+0x9388 = "Cyber9388"
+0x9397 = "Cyber9397"
+0x939A = "Cyber9397 DVD"
+0x9440 = "Cyber"
+0x9520 = "Cyber9520"
+0x9525 = "Cyber9520 DVD"
+0x9540 = "CyberBlade E4"
+0x9660 = "Cyber9385"
+0x9750 = "975"
+0x9754 = "9753"
+0x9850 = "3D Image"
+0x9880 = "Blade 3D"
+0x9910 = "CyberBlade XP"
+0x9930 = "CyberBlade XPm"
+    UnsupportedCard
+    break
+0x2100 = "Cyber XP4"
+0x2200 = "Cyber XP5"
+Unknown = "Unknown"
+    ForceShader=0
+    DoNotUseMinMaxBlendOp
+    DisableSpecular
+    break
+
+
+
+///////////////////////////////////////////////////
+//
+// NUMBER NINE
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x105d  "Number Nine"
+0x493d = "Revolution 3D"
+0x5348 = "Revolution IV"
+    UnsupportedCard
+    break
+
+
+
+///////////////////////////////////////////////////
+//
+// SILICON MOTION
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x126f  "Silicon Motion"
+0x720  = "Lynx 3DM"
+0x820  = "Lynx 3D"
+    UnsupportedCard
+    break
+
+
+
+///////////////////////////////////////////////////
+//
+// CIRRUS
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x1013  "Cirrus"
+0x0038 = "GD7548"
+0x00a0 = "GD5430"
+0x00a8 = "GD5434"
+0x00ac = "GD5436"
+0x00b8 = "GD5446"
+0x00bc = "GD5480"
+0x00d0 = "CL5462"
+0x00d4 = "GD5464"
+0x00d6 = "GD5465"
+0x0301 = "GD5446"
+0x1100 = "CL6729"
+0x1202 = "GD7543"
+0x6001 = "CL4610"
+0x6003 = "CL4614"
+    UnsupportedCard
+    break
+
+
+
+///////////////////////////////////////////////////
+//
+// RENDITION
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x1163  "Rendition"
+0x0001 = "Verite 1000"
+0x2000 = "Verite 2100"
+    UnsupportedCard
+    break
+
+
+///////////////////////////////////////////////////
+//
+// CHROMATIC
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x110b  "Chromatic"
+0x0004 = "MPact"
+    UnsupportedCard
+    break
+
+
+///////////////////////////////////////////////////
+//
+// WEITEK
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x100e  "Weitek"
+0x9001 = "P9000"
+0x9100 = "P9100"
+    UnsupportedCard
+    break
+
+
+///////////////////////////////////////////////////
+//
+// COMPAQ
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x0e11  "Compaq"
+0x3032 = "QVision"
+    UnsupportedCard
+    break
+
+
+///////////////////////////////////////////////////
+//
+// DIGITAL
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x1011  "Digital"
+0x0004 = "TGA"
+0x000d = "TGA2"
+    UnsupportedCard
+    break
+
+
+
+///////////////////////////////////////////////////
+//
+// NEOMAGIC
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x10c8  "NeoMagic"
+0x0001 = "128"
+0x0002 = "128"
+0x0003 = "128ZV"
+0x0004 = "128XD"
+0x0005 = "256AV"
+0x0006 = "256ZX"
+0x0016 = "256XL"
+0x0025 = "256AV"
+0x0083 = "128ZV"
+    UnsupportedCard
+    break
+
+
+///////////////////////////////////////////////////
+//
+// TSENG
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x100c  "Tseng Labs"
+0x3202 = "ET4000"
+0x3205 = "ET4000"
+0x3206 = "ET4000"
+0x3207 = "ET4000"
+0x3208 = "ET6000"
+0x4702 = "ET6300"
+    UnsupportedCard
+    break
+
+///////////////////////////////////////////////////
+//
+// XGI
+//
+//////////////////////////////////////////////////
+
+DisplayVendor = 0x18ca  "XGI"
+0x0040 = "Volar V8 / V5"
+    break
+
+
+ApplyToAll
+    // Universal property here
+    break
