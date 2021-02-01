@@ -48,8 +48,8 @@ void ConvertToLower( WCHAR* psz )
 
 HRESULT InitSoundInformation( REFGUID DsoundGuid, SOUND_DEVICE* pSndDev )
 {
-    OSVERSIONINFO vi;
-    vi.dwOSVersionInfoSize = sizeof( vi );
+    OSVERSIONINFO vi = { sizeof(vi) };
+#pragma warning(suppress : 4996)
     ::GetVersionEx( &vi );
 
     // Obtain the DirectSoundPrivate interface
@@ -1242,8 +1242,8 @@ char* CConfigDatabase::GetCondition()
     }
     else if( NextStringIs( k_KeywordOs ) )
     {
-        OSVERSIONINFO osinfo;
-        osinfo.dwOSVersionInfoSize = sizeof( osinfo );
+        OSVERSIONINFO osinfo = { sizeof(osinfo) };
+#pragma warning(suppress : 4996)
         GetVersionEx( &osinfo );
 
         if( osinfo.dwPlatformId == VER_PLATFORM_WIN32_NT )

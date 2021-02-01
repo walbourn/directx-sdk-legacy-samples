@@ -12,7 +12,6 @@
 #include "ConfigManager.h"
 #include <ddraw.h>
 #include <dsound.h>
-#include <dsetup.h>
 #include <oleauto.h>
 #include <wbemidl.h>
 #pragma warning(default: 4995)
@@ -231,8 +230,8 @@ void CConfigManager::InitConfigInformation( D3DCAPS9 &d3dCaps )
                 if( SUCCEEDED(hr) && uReturned != 0 && pProcessorDev != NULL )
                 {
                     // MaxClockSpeed should be used on WinXP & beyond.
-                    OSVERSIONINFO OSVersionInfo;
-                    OSVersionInfo.dwOSVersionInfoSize = sizeof OSVersionInfo;
+                    OSVERSIONINFO OSVersionInfo = { sizeof(OSVersionInfo) };
+#pragma warning(suppress : 4996)
                     GetVersionEx( &OSVersionInfo );
                     if( ( OSVersionInfo.dwPlatformId   == VER_PLATFORM_WIN32_NT && 
                         OSVersionInfo.dwMajorVersion == 5 &&
@@ -582,12 +581,13 @@ HRESULT CConfigManager::Initialize( WCHAR* FileName, D3DADAPTER_IDENTIFIER9 &Ada
             } else
             if( !_stricmp( "DirectX", Property ) )
             {
+                char dxletter;
 #ifdef _CRT_INSECURE_DEPRECATE
-                nRet = sscanf_s( Value, "%d.%d%c", &req_DirectXMajor, &req_DirectXMinor, &req_DirectXLetter, sizeof(req_DirectXLetter) );
+                nRet = sscanf_s( Value, "%d.%d%c", &req_DirectXMajor, &req_DirectXMinor, &dxletter, 1u );
 #else
-                nRet = sscanf( Value, "%d.%d%c", &req_DirectXMajor, &req_DirectXMinor, &req_DirectXLetter );
+                nRet = sscanf( Value, "%d.%d%c", &req_DirectXMajor, &req_DirectXMinor, &dxletter);
 #endif
-                req_DirectXLetter = (char)req_DirectXLetter;  // Convert to wide char
+                req_DirectXLetter = (wchar_t)dxletter;  // Convert to wide char
                 if( nRet == 0 || nRet == EOF )
                 {
                     req_DirectXMajor = req_DirectXMinor = 0;
@@ -823,8 +823,8 @@ HRESULT CConfigManager::VerifyRequirements()
     //
     // OS version
     //
-    OSVERSIONINFO ovi;
-    ovi.dwOSVersionInfoSize = sizeof(ovi);
+    OSVERSIONINFO ovi = { sizeof(ovi) };
+#pragma warning(suppress : 4996)
     GetVersionEx( &ovi );
     if( req_OSMajor > ovi.dwMajorVersion ||
         ( req_OSMajor == ovi.dwMajorVersion && req_OSMinor > ovi.dwMinorVersion ) )

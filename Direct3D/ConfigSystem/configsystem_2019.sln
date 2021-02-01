@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConfigSystem", "ConfigSystem_2010.vcxproj", "{D3D09104-96D0-4629-88B8-122C0256058C}"
+# Visual Studio Version 2019
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConfigSystem", "ConfigSystem_2019.vcxproj", "{D3D09104-96D0-4629-88B8-122C0256058C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
