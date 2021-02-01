@@ -567,11 +567,11 @@ HRESULT DisplayLuminance( IDirect3DDevice9* pDevice, ID3DXFont* pFont, ID3DXSpri
                                    static_cast< int >( ( 2.0f * fCellH ) + 48.0f + ( 2.0f * fLumCellSize ) ) - 24 );
         txtHelper.DrawTextLine( L"2nd Luminance" );
 
-        D3DSURFACE_DESC d;
-        Luminance::g_pTexLuminance[ 4 ]->GetLevelDesc( 0, &d );
+        D3DSURFACE_DESC d2;
+        Luminance::g_pTexLuminance[ 4 ]->GetLevelDesc( 0, &d2 );
 
         WCHAR str[100];
-        swprintf_s( str, 100, L"%dx%d", d.Width, d.Height );
+        swprintf_s( str, 100, L"%dx%d", d2.Width, d2.Height );
         txtHelper.DrawTextLine( str );
     }
     txtHelper.End();
@@ -592,11 +592,11 @@ HRESULT DisplayLuminance( IDirect3DDevice9* pDevice, ID3DXFont* pFont, ID3DXSpri
                                    static_cast< int >( ( 2.0f * fCellH ) + 64.0f + ( 3.0f * fLumCellSize ) ) - 24 );
         txtHelper.DrawTextLine( L"3rd Luminance" );
 
-        D3DSURFACE_DESC d;
-        Luminance::g_pTexLuminance[ 3 ]->GetLevelDesc( 0, &d );
+        D3DSURFACE_DESC d2;
+        Luminance::g_pTexLuminance[ 3 ]->GetLevelDesc( 0, &d2 );
 
         WCHAR str[100];
-        swprintf_s( str, 100, L"%dx%d", d.Width, d.Height );
+        swprintf_s( str, 100, L"%dx%d", d2.Width, d2.Height );
         txtHelper.DrawTextLine( str );
     }
     txtHelper.End();
@@ -621,11 +621,11 @@ HRESULT DisplayLuminance( IDirect3DDevice9* pDevice, ID3DXFont* pFont, ID3DXSpri
                                    static_cast< int >( ( 2.0f * fCellH ) + 64.0f + ( 3.0f * fLumCellSize ) ) - 24 );
         txtHelper.DrawTextLine( L"4th Luminance" );
 
-        D3DSURFACE_DESC d;
-        Luminance::g_pTexLuminance[ 2 ]->GetLevelDesc( 0, &d );
+        D3DSURFACE_DESC d2;
+        Luminance::g_pTexLuminance[ 2 ]->GetLevelDesc( 0, &d2 );
 
         WCHAR str[100];
-        swprintf_s( str, 100, L"%dx%d", d.Width, d.Height );
+        swprintf_s( str, 100, L"%dx%d", d2.Width, d2.Height );
         txtHelper.DrawTextLine( str );
     }
     txtHelper.End();
@@ -650,11 +650,11 @@ HRESULT DisplayLuminance( IDirect3DDevice9* pDevice, ID3DXFont* pFont, ID3DXSpri
                                    static_cast< int >( ( 2.0f * fCellH ) + 48.0f + ( 2.0f * fLumCellSize ) ) - 24 );
         txtHelper.DrawTextLine( L"5th Luminance" );
 
-        D3DSURFACE_DESC d;
-        Luminance::g_pTexLuminance[ 1 ]->GetLevelDesc( 0, &d );
+        D3DSURFACE_DESC d2;
+        Luminance::g_pTexLuminance[ 1 ]->GetLevelDesc( 0, &d2 );
 
         WCHAR str[100];
-        swprintf_s( str, 100, L"%dx%d", d.Width, d.Height );
+        swprintf_s( str, 100, L"%dx%d", d2.Width, d2.Height );
         txtHelper.DrawTextLine( str );
     }
     txtHelper.End();
@@ -679,11 +679,11 @@ HRESULT DisplayLuminance( IDirect3DDevice9* pDevice, ID3DXFont* pFont, ID3DXSpri
                                    static_cast< int >( ( 2.0f * fCellH ) + 32.0f + ( 1.0f * fLumCellSize ) ) - 24 );
         txtHelper.DrawTextLine( L"6th Luminance" );
 
-        D3DSURFACE_DESC d;
-        Luminance::g_pTexLuminance[ 0 ]->GetLevelDesc( 0, &d );
+        D3DSURFACE_DESC d2;
+        Luminance::g_pTexLuminance[ 0 ]->GetLevelDesc( 0, &d2 );
 
         WCHAR str[100];
-        swprintf_s( str, 100, L"%dx%d", d.Width, d.Height );
+        swprintf_s( str, 100, L"%dx%d", d2.Width, d2.Height );
         txtHelper.DrawTextLine( str );
     }
     txtHelper.End();

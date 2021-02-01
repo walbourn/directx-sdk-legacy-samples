@@ -907,11 +907,11 @@ HRESULT DisplaySteps( IDirect3DDevice9* pDevice, ID3DXFont* pFont, ID3DXSprite* 
         txtHelper.SetInsertionPos( static_cast< int >( fCellW + 16.0f ) + 5, static_cast< int >( fCellH - 25.0f ) );
         txtHelper.DrawTextLine( L"Down-Sampled" );
 
-        D3DSURFACE_DESC d;
-        PostProcess::g_pDownSampledTex->GetLevelDesc( 0, &d );
+        D3DSURFACE_DESC d2;
+        PostProcess::g_pDownSampledTex->GetLevelDesc( 0, &d2 );
 
         WCHAR str[100];
-        swprintf_s( str, 100, L"%dx%d", d.Width, d.Height );
+        swprintf_s( str, 100, L"%dx%d", d2.Width, d2.Height );
         txtHelper.DrawTextLine( str );
     }
     txtHelper.End();
@@ -932,11 +932,11 @@ HRESULT DisplaySteps( IDirect3DDevice9* pDevice, ID3DXFont* pFont, ID3DXSprite* 
                                    static_cast< int >( fCellH - 25.0f ) );
         txtHelper.DrawTextLine( L"Horizontal Blur" );
 
-        D3DSURFACE_DESC d;
-        PostProcess::g_pBloomHorizontal->GetLevelDesc( 0, &d );
+        D3DSURFACE_DESC d2;
+        PostProcess::g_pBloomHorizontal->GetLevelDesc( 0, &d2 );
 
         WCHAR str[100];
-        swprintf_s( str, 100, L"%dx%d", d.Width, d.Height );
+        swprintf_s( str, 100, L"%dx%d", d2.Width, d2.Height );
         txtHelper.DrawTextLine( str );
     }
     txtHelper.End();
@@ -957,11 +957,11 @@ HRESULT DisplaySteps( IDirect3DDevice9* pDevice, ID3DXFont* pFont, ID3DXSprite* 
                                    static_cast< int >( fCellH - 25.0f ) );
         txtHelper.DrawTextLine( L"Vertical Blur" );
 
-        D3DSURFACE_DESC d;
-        PostProcess::g_pDownSampledTex->GetLevelDesc( 0, &d );
+        D3DSURFACE_DESC d2;
+        PostProcess::g_pDownSampledTex->GetLevelDesc( 0, &d2 );
 
         WCHAR str[100];
-        swprintf_s( str, 100, L"%dx%d", d.Width, d.Height );
+        swprintf_s( str, 100, L"%dx%d", d2.Width, d2.Height );
         txtHelper.DrawTextLine( str );
     }
     txtHelper.End();
@@ -1134,7 +1134,7 @@ float ComputeGaussianValue( float x, float mean, float std_deviation )
       
      */
 
-    return ( 1.0f / sqrt( 2.0f * D3DX_PI * std_deviation * std_deviation ) )
+    return ( 1.0f / sqrtf( 2.0f * D3DX_PI * std_deviation * std_deviation ) )
         * expf( ( -( ( x - mean ) * ( x - mean ) ) ) / ( 2.0f * std_deviation * std_deviation ) );
 }
 
