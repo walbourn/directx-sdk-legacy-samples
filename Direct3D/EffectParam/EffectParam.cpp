@@ -809,7 +809,6 @@ void CALLBACK OnFrameRender( IDirect3DDevice9* pd3dDevice, double fTime, float f
     }
 
     HRESULT hr;
-    D3DXMATRIXA16 mWorld;
     D3DXMATRIXA16 mWorldView;
     D3DXMATRIXA16 mViewProj;
     D3DXMATRIXA16 mWorldViewProjection;
