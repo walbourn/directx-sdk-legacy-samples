@@ -1869,7 +1869,7 @@ void DestroyBuffers()
     SAFE_RELEASE( g_pParticleDrawFrom );
 }
 
-#define MM_RETURN(x)    { hr = (x); if( S_OK != hr ) { return DXUTTrace( __FILE__, (DWORD)__LINE__, hr, L#x, true ); } }
+#define MM_RETURN(x)    { hr = (x); if( S_OK != hr ) { return DXUTTrace( __FILE__, (DWORD)__LINE__, hr, L## #x, true ); } }
 HRESULT OpenWaveDevice()
 {
     // Get the number of audio output devices on the system
