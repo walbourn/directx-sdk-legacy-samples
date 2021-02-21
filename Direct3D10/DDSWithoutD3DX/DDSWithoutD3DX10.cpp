@@ -32,12 +32,12 @@ extern ID3DXFont*                   g_pFont9;
 extern ID3DXSprite*                 g_pSprite9;
 extern IDirect3DTexture9*           g_pTexture9;
 
-// Direct3D 10 resources
+// Direct3D 10.1 resources
 ID3DX10Font*                        g_pFont10 = NULL;
 ID3DX10Sprite*                      g_pSprite10 = NULL;
 ID3D10Effect*                       g_pEffect10 = NULL;
 ID3D10InputLayout*                  g_pLayout10 = NULL;
-ID3D10ShaderResourceView*           g_pSRV10 = NULL;
+ID3D10ShaderResourceView1*          g_pSRV10 = NULL;
 ID3D10EffectTechnique*              g_pRenderScene = NULL;
 ID3D10EffectMatrixVariable*         g_pmWorld = NULL;
 ID3D10EffectMatrixVariable*         g_pmWorldViewProjection = NULL;
@@ -234,7 +234,7 @@ HRESULT CALLBACK OnD3D10CreateDevice( ID3D10Device* pd3dDevice, const DXGI_SURFA
 
     // Load the texture
     V_RETURN( DXUTFindDXSDKMediaFileCch( str, MAX_PATH, L"misc\\seafloor.dds" ) );
-    V_RETURN( CreateDDSTextureFromFile( pd3dDevice, str, &g_pSRV10 ) );
+    V_RETURN( CreateDDSTextureFromFile(DXUTGetD3D10Device1(), str, &g_pSRV10 ) );
 
     // Setup the camera's view parameters
     D3DXVECTOR3 vecEye( 0.0f, 0.0f, -5.0f );
@@ -485,7 +485,7 @@ void CALLBACK OnGUIEvent( UINT nEvent, int nControlID, CDXUTControl* pControl, v
                     if( DXUTIsAppRenderingWithD3D10() )
                     {
                         SAFE_RELEASE( g_pSRV10 );
-                        V( CreateDDSTextureFromFile( DXUTGetD3D10Device(), szFile, &g_pSRV10 ) );
+                        V( CreateDDSTextureFromFile( DXUTGetD3D10Device1(), szFile, &g_pSRV10 ) );
                     }
                     else
                     {
