@@ -198,8 +198,8 @@ bool CPackedFile::CreatePackedFile( ID3D10Device* pDev10, IDirect3DDevice9* pDev
             UINT ChunkIndex = ChunkY * ChunkSide + ChunkX;
 
             // Tile
-            TERRAIN_TILE* pTile = Terrain.GetTile( iTile );
-            D3DXVECTOR3 vCenter = ( pTile->BBox.min + pTile->BBox.max ) / 2.0f;
+            TERRAIN_TILE* pTile2 = Terrain.GetTile( iTile );
+            D3DXVECTOR3 vCenter = ( pTile2->BBox.min + pTile2->BBox.max ) / 2.0f;
 
             // TerrainVB
             FILE_INDEX* pFileIndex = new FILE_INDEX;
