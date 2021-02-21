@@ -27,4 +27,7 @@ x64
 packages
 Test
 /wiki
-Direct3D/CompiledEffect/*.fxo
+/Direct3D/CompiledEffect/*.fxo
+/Media/misc/*.ldprt
+/Media/misc/*.prt
+/Media/misc/*.sn

@@ -600,10 +600,10 @@ HRESULT LoadMeshes( IDirect3DDevice9* pd3dDevice, SIMULATOR_OPTIONS* pOptions,
     {
         LONGLONG dwNumVerts = 0;
         LONGLONG dwNumFaces = 0;
-        for( DWORD iMesh = 0; iMesh < dwNumMeshes; iMesh++ )
+        for( DWORD j = 0; j < dwNumMeshes; j++ )
         {
-            dwNumVerts += blockerMeshArray[iMesh]->GetNumVertices();
-            dwNumFaces += blockerMeshArray[iMesh]->GetNumFaces();
+            dwNumVerts += blockerMeshArray[j]->GetNumVertices();
+            dwNumFaces += blockerMeshArray[j]->GetNumFaces();
         }
 
         DWORD dwFlags = D3DXMESH_SYSTEMMEM;
@@ -626,10 +626,10 @@ HRESULT LoadMeshes( IDirect3DDevice9* pd3dDevice, SIMULATOR_OPTIONS* pOptions,
     {
         LONGLONG dwNumVerts = 0;
         LONGLONG dwNumFaces = 0;
-        for( DWORD iMesh = 0; iMesh < dwNumMeshes; iMesh++ )
+        for( DWORD j = 0; j < dwNumMeshes; j++ )
         {
-            dwNumVerts += prtMeshArray[iMesh]->GetNumVertices();
-            dwNumFaces += prtMeshArray[iMesh]->GetNumFaces();
+            dwNumVerts += prtMeshArray[j]->GetNumVertices();
+            dwNumFaces += prtMeshArray[j]->GetNumFaces();
         }
 
         DWORD dwFlags = D3DXMESH_SYSTEMMEM;

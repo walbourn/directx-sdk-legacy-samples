@@ -15,6 +15,7 @@
 #define IDLE_TRANSITION_TIME 0.125f
 #define MOVE_TRANSITION_TIME 0.25f
 
+#include <string>
 
 typedef std::basic_string <TCHAR>   String;
 
