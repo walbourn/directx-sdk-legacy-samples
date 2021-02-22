@@ -703,8 +703,10 @@ HRESULT CALLBACK OnD3D10CreateDevice( ID3D10Device* pd3dDevice, const DXGI_SURFA
         g_SubDMesh[i].SortPatchesBySize();
 
         // Load any height textures for displacement
-        if( g_MeshDesc[i].m_szHeightMap[0] != L'' )
-        V_RETURN( g_SubDMesh[i].LoadHeightTexture( pd3dDevice, g_MeshDesc[i].m_szHeightMap ) );
+        if (g_MeshDesc[i].m_szHeightMap[0] != 0)
+        {
+            V_RETURN(g_SubDMesh[i].LoadHeightTexture(pd3dDevice, g_MeshDesc[i].m_szHeightMap));
+        }
 
         // Create GPU resources
         V_RETURN( g_SubDMesh[i].CreatePatchesBuffer( pd3dDevice ) );
@@ -795,8 +797,8 @@ void ConvertFromSubDToBezier( ID3D10Device* pd3dDevice, CSubDMesh* pMesh )
         ID3D10InputLayout* pLayout = g_pPatchLayout;
         int NumToDraw = NumExtraPatches;
         stride[0] = sizeof( SUBDPATCH );
-        ID3D10Buffer* pBuffers[1];
-        pBuffers[0] = pMesh->GetSubDPatchVB();
+        ID3D10Buffer* pBuffers2[1];
+        pBuffers2[0] = pMesh->GetSubDPatchVB();
 
         // If this is the second pass, then we're doing the regular patches.
         // Setup the techniques appropriately.
@@ -817,18 +819,18 @@ void ConvertFromSubDToBezier( ID3D10Device* pd3dDevice, CSubDMesh* pMesh )
 
             pLayout = g_pRegularPatchLayout;
             stride[0] = sizeof( SUBDPATCHREGULAR );
-            pBuffers[0] = pMesh->GetSubDPatchRegVB();
+            pBuffers2[0] = pMesh->GetSubDPatchRegVB();
         }
 
         // Set IA data
         pd3dDevice->IASetInputLayout( pLayout );
 
         // Set patch vb
-        pd3dDevice->IASetVertexBuffers( 0, 1, pBuffers, stride, zeroOffset );
+        pd3dDevice->IASetVertexBuffers( 0, 1, pBuffers2, stride, zeroOffset );
 
         // Stream to BezierB buffer
-        pBuffers[0] = pMesh->GetPatchesBufferB();
-        pd3dDevice->SOSetTargets( 1, pBuffers, offset );
+        pBuffers2[0] = pMesh->GetPatchesBufferB();
+        pd3dDevice->SOSetTargets( 1, pBuffers2, offset );
         pTechB->GetDesc( &Desc );
         for( UINT p = 0; p < Desc.Passes; ++p )
         {
@@ -844,8 +846,8 @@ void ConvertFromSubDToBezier( ID3D10Device* pd3dDevice, CSubDMesh* pMesh )
                 g_pTechCurrent == g_pTechRenderSceneBumpTan )
             {
                 // Stream to BezierUV buffer
-                pBuffers[0] = pMesh->GetPatchesBufferUV();
-                pd3dDevice->SOSetTargets( 1, pBuffers, offset );
+                pBuffers2[0] = pMesh->GetPatchesBufferUV();
+                pd3dDevice->SOSetTargets( 1, pBuffers2, offset );
                 pTechUV->GetDesc( &Desc );
                 for( UINT p = 0; p < Desc.Passes; ++p )
                 {
@@ -971,9 +973,9 @@ void CALLBACK OnD3D10FrameRender( ID3D10Device* pd3dDevice, double fTime, float 
         // Render the scene with this technique as defined in the .fx file
         ID3D10EffectTechnique* pRenderTechnique = g_pTechCurrent;
 
-        if( pRenderTechnique == g_pTechRenderSceneBump && g_MeshDesc[i].m_szHeightMap[0] == L'' )
+        if( pRenderTechnique == g_pTechRenderSceneBump && g_MeshDesc[i].m_szHeightMap[0] != 0 )
         pRenderTechnique = g_pTechRenderScene;
-        else if( pRenderTechnique == g_pTechRenderSceneBumpTan && g_MeshDesc[i].m_szHeightMap[0] == L'' )
+        else if( pRenderTechnique == g_pTechRenderSceneBumpTan && g_MeshDesc[i].m_szHeightMap[0] != 0 )
         pRenderTechnique = g_pTechRenderSceneTan;
 
         // Render regular and extraordinary patches separately since they will have different shaders
