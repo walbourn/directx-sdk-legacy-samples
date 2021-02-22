@@ -219,7 +219,7 @@ bool CALLBACK ModifyDeviceSettings( DXUTDeviceSettings* pDeviceSettings, void* p
 void CALLBACK OnFrameMove( double fTime, float fElapsedTime, void* pUserContext )
 {
    // DX10 spec only guarantees Sincos function from -100 * Pi to 100 * Pi
-   float fBoundedTime = (float) fTime - (floor( (float) fTime / (2.0f * D3DX_PI)) * 2.0f * D3DX_PI);
+   float fBoundedTime = (float) fTime - (floorf( (float) fTime / (2.0f * D3DX_PI)) * 2.0f * D3DX_PI);
 
     // Update the camera's position based on user input 
     g_Camera.FrameMove( fElapsedTime );

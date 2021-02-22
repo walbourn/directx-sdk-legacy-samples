@@ -608,8 +608,8 @@ void RenderSkinnedMesh( ID3D10Device* pd3dDevice, CDXUTSDKMesh* pAnimMesh, doubl
 
             for( UINT i = 0; i < pAnimMesh->GetNumInfluences( m ); i++ )
             {
-                const D3DXMATRIX* pMat = pAnimMesh->GetMeshInfluenceMatrix( m, i );
-                g_pmBoneWorld->SetMatrixArray( ( float* )pMat, MAX_BONE_MATRICES * s + i, 1 );
+                const D3DXMATRIX* pMat2 = pAnimMesh->GetMeshInfluenceMatrix( m, i );
+                g_pmBoneWorld->SetMatrixArray( ( float* )pMat2, MAX_BONE_MATRICES * s + i, 1 );
             }
         }
 

@@ -383,8 +383,7 @@ D3DXVECTOR2 CTerrain::GetUVForPosition( D3DXVECTOR3* pPos )
 HRESULT CTerrain::LoadBMPImage( WCHAR* strHeightMap )
 {
     FILE* fp = NULL;
-    fp = _wfopen( strHeightMap, L"rb" );
-    if( !fp )
+    if (_wfopen_s(&fp, strHeightMap, L"rb"))
         return E_INVALIDARG;
 
     // read the bfh

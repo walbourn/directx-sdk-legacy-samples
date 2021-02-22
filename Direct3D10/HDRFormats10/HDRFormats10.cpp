@@ -879,7 +879,7 @@ HRESULT CALLBACK OnD3D10ResizedSwapChain( ID3D10Device* pd3dDevice, IDXGISwapCha
             UINT uiWidth = pBackBufferSurfaceDesc->Width;
             UINT uiHeight = pBackBufferSurfaceDesc->Height;
 
-            HRESULT hr = S_OK;
+            hr = S_OK;
             D3D10_TEXTURE2D_DESC dstex;
             dstex.Width = uiWidth;
             dstex.Height = uiHeight;
@@ -895,11 +895,13 @@ HRESULT CALLBACK OnD3D10ResizedSwapChain( ID3D10Device* pd3dDevice, IDXGISwapCha
             V_RETURN( pd3dDevice->CreateTexture2D( &dstex, NULL, &g_pMSRT10 ) );
 
             // Create the render target view
-            D3D10_RENDER_TARGET_VIEW_DESC DescRT;
-            DescRT.Format = dstex.Format;
-            DescRT.ViewDimension = D3D10_RTV_DIMENSION_TEXTURE2DMS;
-            DescRT.Texture2D.MipSlice = 0;
-            V_RETURN( pd3dDevice->CreateRenderTargetView( g_pMSRT10, &DescRT, &g_pMSRTV10 ) );
+            {
+                D3D10_RENDER_TARGET_VIEW_DESC desc = {};
+                desc.Format = dstex.Format;
+                desc.ViewDimension = D3D10_RTV_DIMENSION_TEXTURE2DMS;
+                desc.Texture2D.MipSlice = 0;
+                V_RETURN(pd3dDevice->CreateRenderTargetView(g_pMSRT10, &desc, &g_pMSRTV10));
+            }
 
             //
             // Create depth stencil texture.
@@ -917,11 +919,13 @@ HRESULT CALLBACK OnD3D10ResizedSwapChain( ID3D10Device* pd3dDevice, IDXGISwapCha
             V_RETURN( pd3dDevice->CreateTexture2D( &dstex, NULL, &g_pMSDS10 ) );
 
             // Create the depth stencil view
-            D3D10_DEPTH_STENCIL_VIEW_DESC DescDS;
-            DescDS.Format = dfmt;
-            DescDS.ViewDimension = D3D10_DSV_DIMENSION_TEXTURE2DMS;
-            DescDS.Texture2D.MipSlice = 0;
-            V_RETURN( pd3dDevice->CreateDepthStencilView( g_pMSDS10, &DescDS, &g_pMSDSV10 ) );
+            {
+                D3D10_DEPTH_STENCIL_VIEW_DESC desc = {};
+                desc.Format = dfmt;
+                desc.ViewDimension = D3D10_DSV_DIMENSION_TEXTURE2DMS;
+                desc.Texture2D.MipSlice = 0;
+                V_RETURN(pd3dDevice->CreateDepthStencilView(g_pMSDS10, &desc, &g_pMSDSV10));
+            }
         }
     }
 
@@ -961,28 +965,32 @@ HRESULT CALLBACK OnD3D10ResizedSwapChain( ID3D10Device* pd3dDevice, IDXGISwapCha
         V_RETURN( pd3dDevice->CreateTexture2D( &tmdesc, NULL, &g_apTexToneMap10[i] ) );
 
         // Create the render target view
-        D3D10_RENDER_TARGET_VIEW_DESC DescRT;
-        DescRT.Format = tmdesc.Format;
-        DescRT.ViewDimension = D3D10_RTV_DIMENSION_TEXTURE2D;
-        DescRT.Texture2D.MipSlice = 0;
-        V_RETURN( pd3dDevice->CreateRenderTargetView( g_apTexToneMap10[i], &DescRT, &g_apTexToneMapRTV10[i] ) );
+        {
+            D3D10_RENDER_TARGET_VIEW_DESC desc = {};
+            desc.Format = tmdesc.Format;
+            desc.ViewDimension = D3D10_RTV_DIMENSION_TEXTURE2D;
+            desc.Texture2D.MipSlice = 0;
+            V_RETURN(pd3dDevice->CreateRenderTargetView(g_apTexToneMap10[i], &desc, &g_apTexToneMapRTV10[i]));
+        }
 
         // Create the shader resource view
-        D3D10_SHADER_RESOURCE_VIEW_DESC DescRV;
-        DescRV.Format = tmdesc.Format;
-        DescRV.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
-        DescRV.Texture2D.MipLevels = 1;
-        DescRV.Texture2D.MostDetailedMip = 0;
-        V_RETURN( pd3dDevice->CreateShaderResourceView( g_apTexToneMap10[i], &DescRV, &g_apTexToneMapRV10[i] ) );
+        {
+            D3D10_SHADER_RESOURCE_VIEW_DESC desc = {};
+            desc.Format = tmdesc.Format;
+            desc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
+            desc.Texture2D.MipLevels = 1;
+            desc.Texture2D.MostDetailedMip = 0;
+            V_RETURN(pd3dDevice->CreateShaderResourceView(g_apTexToneMap10[i], &desc, &g_apTexToneMapRV10[i]));
+        }
 
         nSampleLen *= 3;
     }
 
     // Create the temporary blooming effect textures
-    for( int i = 0; i < NUM_BLOOM_TEXTURES; i++ )
+    for (int i = 0; i < NUM_BLOOM_TEXTURES; i++)
     {
         D3D10_TEXTURE2D_DESC bmdesc;
-        ZeroMemory( &bmdesc, sizeof( D3D10_TEXTURE2D_DESC ) );
+        ZeroMemory(&bmdesc, sizeof(D3D10_TEXTURE2D_DESC));
         bmdesc.ArraySize = 1;
         bmdesc.BindFlags = D3D10_BIND_RENDER_TARGET | D3D10_BIND_SHADER_RESOURCE;
         bmdesc.Usage = D3D10_USAGE_DEFAULT;
@@ -992,23 +1000,26 @@ HRESULT CALLBACK OnD3D10ResizedSwapChain( ID3D10Device* pd3dDevice, IDXGISwapCha
         bmdesc.MipLevels = 1;
         bmdesc.SampleDesc.Count = 1;
 
-        V_RETURN( pd3dDevice->CreateTexture2D( &bmdesc, NULL, &g_apTexBloom10[i] ) );
+        V_RETURN(pd3dDevice->CreateTexture2D(&bmdesc, NULL, &g_apTexBloom10[i]));
 
         // Create the render target view
-        D3D10_RENDER_TARGET_VIEW_DESC DescRT;
-        DescRT.Format = bmdesc.Format;
-        DescRT.ViewDimension = D3D10_RTV_DIMENSION_TEXTURE2D;
-        DescRT.Texture2D.MipSlice = 0;
-        V_RETURN( pd3dDevice->CreateRenderTargetView( g_apTexBloom10[i], &DescRT, &g_apTexBloomRTV10[i] ) );
+        {
+            D3D10_RENDER_TARGET_VIEW_DESC desc = {};
+            desc.Format = bmdesc.Format;
+            desc.ViewDimension = D3D10_RTV_DIMENSION_TEXTURE2D;
+            desc.Texture2D.MipSlice = 0;
+            V_RETURN(pd3dDevice->CreateRenderTargetView(g_apTexBloom10[i], &desc, &g_apTexBloomRTV10[i]));
+        }
 
         // Create the shader resource view
-        D3D10_SHADER_RESOURCE_VIEW_DESC DescRV;
-        DescRV.Format = bmdesc.Format;
-        DescRV.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
-        DescRV.Texture2D.MipLevels = 1;
-        DescRV.Texture2D.MostDetailedMip = 0;
-        V_RETURN( pd3dDevice->CreateShaderResourceView( g_apTexBloom10[i], &DescRV, &g_apTexBloomRV10[i] ) );
-
+        {
+            D3D10_SHADER_RESOURCE_VIEW_DESC desc = {};
+            desc.Format = bmdesc.Format;
+            desc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
+            desc.Texture2D.MipLevels = 1;
+            desc.Texture2D.MostDetailedMip = 0;
+            V_RETURN(pd3dDevice->CreateShaderResourceView(g_apTexBloom10[i], &desc, &g_apTexBloomRV10[i]));
+        }
     }
 
     g_HUD.SetLocation( pBackBufferSurfaceDesc->Width - 170, 0 );
@@ -1775,8 +1786,8 @@ HRESULT MeasureLuminance10()
         D3D10_TEXTURE2D_DESC desc;
         g_apTexToneMap10[i]->GetDesc( &desc );
 
-        ID3D10RenderTargetView* aRTViews[ 1 ] = { pSurfDest };
-        pd3dDevice->OMSetRenderTargets( 1, aRTViews, NULL );
+        ID3D10RenderTargetView* aRTViews2[ 1 ] = { pSurfDest };
+        pd3dDevice->OMSetRenderTargets( 1, aRTViews2, NULL );
 
         pS0->SetResource( pTexSrc );
 

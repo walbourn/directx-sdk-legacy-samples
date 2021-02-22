@@ -928,15 +928,15 @@ void UpdateLeafVertexLayout( ID3D10Device* pd3dDevice )
         { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D10_INPUT_PER_VERTEX_DATA, 0 },
         { "TEXTURE", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 12, D3D10_INPUT_PER_VERTEX_DATA, 0 },
         { "mTransform", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 0, D3D10_INPUT_PER_INSTANCE_DATA,
-            g_iNumTreesToDraw },
+            static_cast<UINT>(g_iNumTreesToDraw) },
         { "mTransform", 1, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 16, D3D10_INPUT_PER_INSTANCE_DATA,
-            g_iNumTreesToDraw },
+            static_cast<UINT>(g_iNumTreesToDraw) },
         { "mTransform", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 32, D3D10_INPUT_PER_INSTANCE_DATA,
-            g_iNumTreesToDraw },
+            static_cast<UINT>(g_iNumTreesToDraw) },
         { "mTransform", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 48, D3D10_INPUT_PER_INSTANCE_DATA,
-            g_iNumTreesToDraw },
+            static_cast<UINT>(g_iNumTreesToDraw) },
         { "fOcc",       0, DXGI_FORMAT_R32_FLOAT,          1, 64, D3D10_INPUT_PER_INSTANCE_DATA,
-            g_iNumTreesToDraw },
+            static_cast<UINT>(g_iNumTreesToDraw) },
     };
     int iNumElements = sizeof( leaflayout ) / sizeof( D3D10_INPUT_ELEMENT_DESC );
     D3D10_PASS_DESC PassDesc;
@@ -1378,7 +1378,7 @@ HRESULT CreateRandomTreeMatrices()
         D3DXVECTOR3 pos;
         pos.x = RPercent() * 140.0f;
         pos.y = RPercent() * 20.0f - 10.0f;
-        pos.z = 15.0f + fabs( RPercent() ) * 200.0f;
+        pos.z = 15.0f + fabsf( RPercent() ) * 200.0f;
 
         pos.x *= -1;
         pos.z *= -1;

@@ -461,9 +461,11 @@ void CALLBACK OnGUIEvent( UINT nEvent, int nControlID, CDXUTControl* pControl, v
         case IDC_LIGHT_SCALE:
             g_fLightScale = ( float )( g_SampleUI.GetSlider( IDC_LIGHT_SCALE )->GetValue() * 0.10f );
 
-            WCHAR sz[100];
-            swprintf_s( sz, 100, L"Light scale: %0.2f", g_fLightScale );
-            g_SampleUI.GetStatic( IDC_LIGHT_SCALE_STATIC )->SetText( sz );
+            {
+                WCHAR sz[100];
+                swprintf_s(sz, 100, L"Light scale: %0.2f", g_fLightScale);
+                g_SampleUI.GetStatic(IDC_LIGHT_SCALE_STATIC)->SetText(sz);
+            }
             break;
 
         case IDC_RENDER_SHADOWS:
