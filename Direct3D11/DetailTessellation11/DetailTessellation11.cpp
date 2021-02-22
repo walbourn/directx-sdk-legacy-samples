@@ -1461,9 +1461,9 @@ void CALLBACK OnD3D11FrameRender( ID3D11Device* pd3dDevice, ID3D11DeviceContext*
         }
         fAngleRAD = (float)( fRPS * fTime * 2.0f * D3DX_PI );
         float fRadius = (3.0f/4.0f) * GRID_SIZE;
-        vFrom.x = fRadius * cos( fAngleRAD );
+        vFrom.x = fRadius * cosf( fAngleRAD );
         vFrom.y = 80.0f;
-        vFrom.z = fRadius * sin( fAngleRAD );
+        vFrom.z = fRadius * sinf( fAngleRAD );
         const D3DXVECTOR3 vAt( 0, 0, 0 );
         const D3DXVECTOR3 vUp(0, 1, 0);
         D3DXMatrixLookAtLH( &mView, &vFrom, &vAt, &vUp );
@@ -1693,9 +1693,9 @@ void CALLBACK OnD3D11FrameRender( ID3D11Device* pd3dDevice, ID3D11DeviceContext*
         pd3dImmediateContext->Unmap( g_pParticleVB, 0 );
 
         // Set vertex buffer
-        UINT stride = sizeof(D3DXVECTOR3);
-        UINT offset = 0;
-        pd3dImmediateContext->IASetVertexBuffers( 0, 1, &g_pParticleVB, &stride, &offset );
+        UINT stride2 = sizeof(D3DXVECTOR3);
+        UINT offset2 = 0;
+        pd3dImmediateContext->IASetVertexBuffers( 0, 1, &g_pParticleVB, &stride2, &offset2 );
 
         // Set input layout
         pd3dImmediateContext->IASetInputLayout( g_pPositionOnlyVertexLayout );
@@ -1988,13 +1988,13 @@ void CreateDensityMapFromHeightMap( ID3D11Device* pd3dDevice, ID3D11DeviceContex
             float fCurrentPixelBottomLeftHeight =  ( BottomLeft.rgbReserved       / 255.0f );
 
             float fDensity = 0.0f;
-            float fHorizontalVariation = fabs( ( fCurrentPixelRightHeight - fCurrentPixelHeight ) - 
+            float fHorizontalVariation = fabsf( ( fCurrentPixelRightHeight - fCurrentPixelHeight ) - 
                                                ( fCurrentPixelHeight - fCurrentPixelLeftHeight ) );
-            float fVerticalVariation = fabs( ( fCurrentPixelBottomHeight - fCurrentPixelHeight ) - 
+            float fVerticalVariation = fabsf( ( fCurrentPixelBottomHeight - fCurrentPixelHeight ) - 
                                              ( fCurrentPixelHeight - fCurrentPixelTopHeight ) );
-            float fFirstDiagonalVariation = fabs( ( fCurrentPixelTopRightHeight - fCurrentPixelHeight ) - 
+            float fFirstDiagonalVariation = fabsf( ( fCurrentPixelTopRightHeight - fCurrentPixelHeight ) - 
                                                   ( fCurrentPixelHeight - fCurrentPixelBottomLeftHeight ) );
-            float fSecondDiagonalVariation = fabs( ( fCurrentPixelBottomRightHeight - fCurrentPixelHeight ) - 
+            float fSecondDiagonalVariation = fabsf( ( fCurrentPixelBottomRightHeight - fCurrentPixelHeight ) - 
                                                    ( fCurrentPixelHeight - fCurrentPixelTopLeftHeight ) );
             if ( fHorizontalVariation     >= fMeaningfulDifference) fDensity += 0.293f * fHorizontalVariation;
             if ( fVerticalVariation       >= fMeaningfulDifference) fDensity += 0.293f * fVerticalVariation;
@@ -2412,9 +2412,9 @@ void NormalizePlane( D3DXVECTOR4* pPlaneEquation )
 {
     float mag;
     
-    mag = sqrt( pPlaneEquation->x * pPlaneEquation->x + 
-                pPlaneEquation->y * pPlaneEquation->y + 
-                pPlaneEquation->z * pPlaneEquation->z );
+    mag = sqrtf( pPlaneEquation->x * pPlaneEquation->x + 
+                 pPlaneEquation->y * pPlaneEquation->y + 
+                 pPlaneEquation->z * pPlaneEquation->z );
     
     pPlaneEquation->x = pPlaneEquation->x / mag;
     pPlaneEquation->y = pPlaneEquation->y / mag;

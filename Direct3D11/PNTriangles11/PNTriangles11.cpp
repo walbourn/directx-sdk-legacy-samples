@@ -1567,9 +1567,9 @@ void NormalizePlane( D3DXVECTOR4* pPlaneEquation )
 {
     float mag;
     
-    mag = sqrt( pPlaneEquation->x * pPlaneEquation->x + 
-                pPlaneEquation->y * pPlaneEquation->y + 
-                pPlaneEquation->z * pPlaneEquation->z );
+    mag = sqrtf( pPlaneEquation->x * pPlaneEquation->x + 
+                 pPlaneEquation->y * pPlaneEquation->y + 
+                 pPlaneEquation->z * pPlaneEquation->z );
     
     pPlaneEquation->x = pPlaneEquation->x / mag;
     pPlaneEquation->y = pPlaneEquation->y / mag;

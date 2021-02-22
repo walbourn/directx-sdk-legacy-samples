@@ -314,7 +314,7 @@ public:
             }
         }
 
-        float fRowDimension = sqrt( ( float ) nSelectedCount );
+        float fRowDimension = sqrtf( ( float ) nSelectedCount );
         INT iRowDimension = ( INT )fRowDimension ;
         INT current = 0;
         float fRowOffset;
@@ -914,25 +914,27 @@ void CALLBACK OnD3D11FrameRender( ID3D11Device* pd3dDevice, ID3D11DeviceContext*
         pMatricesData->m_matWorldViewProj = mWorldViewProj;
         pd3dImmediateContext->Unmap(g_pCBMatrices, 0);
         // Render the meshes
-        for( UINT m = 0; m < g_SkinnedMesh.GetNumMeshes(); m++ )
+        for (UINT m = 0; m < g_SkinnedMesh.GetNumMeshes(); m++)
         {
-            pBuffers[0] = g_SkinnedMesh.GetVB11( m, 0 );
-            stride[0] = ( UINT )g_SkinnedMesh.GetVertexStride( m, 0 );
+            pBuffers[0] = g_SkinnedMesh.GetVB11(m, 0);
+            stride[0] = (UINT)g_SkinnedMesh.GetVertexStride(m, 0);
             offset[0] = 0;
 
-            pd3dImmediateContext->IASetVertexBuffers( 0, 1, pBuffers, stride, offset );
-            pd3dImmediateContext->IASetIndexBuffer( g_SkinnedMesh.GetIB11( m ), g_SkinnedMesh.GetIBFormat11( m ), 0 );
+            pd3dImmediateContext->IASetVertexBuffers(0, 1, pBuffers, stride, offset);
+            pd3dImmediateContext->IASetIndexBuffer(g_SkinnedMesh.GetIB11(m), g_SkinnedMesh.GetIBFormat11(m), 0);
 
             SDKMESH_SUBSET* pSubset = NULL;
             SDKMESH_MATERIAL* pMat = NULL;
             D3D11_PRIMITIVE_TOPOLOGY PrimType;
 
             // Set the bone matrices
-            SetBoneMatrices( m );
-            D3D11_MAPPED_SUBRESOURCE MappedResource;
-            pd3dImmediateContext->Map(g_pCBConstBoneWorld, 0, D3D11_MAP_WRITE_DISCARD, 0, &MappedResource); 
-            memcpy(MappedResource.pData, &g_CBConstBoneWorld, sizeof (g_CBConstBoneWorld));
-            pd3dImmediateContext->Unmap(g_pCBConstBoneWorld, 0);
+            SetBoneMatrices(m);
+            {
+                D3D11_MAPPED_SUBRESOURCE mapped;
+                pd3dImmediateContext->Map(g_pCBConstBoneWorld, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
+                memcpy(mapped.pData, &g_CBConstBoneWorld, sizeof(g_CBConstBoneWorld));
+                pd3dImmediateContext->Unmap(g_pCBConstBoneWorld, 0);
+            }
 
             for( UINT subset = 0; subset < g_SkinnedMesh.GetNumSubsets( m ); subset++ )
             {
@@ -1067,7 +1069,7 @@ float INTersectRaySphere(const D3DXVECTOR3 vRayDirection, D3DXVECTOR3 vRayOrigin
     float fpB = D3DXVec3Dot( &vRayToSphere, &vRayDirection );
     float fpC = D3DXVec3Dot( &vRayToSphere, &vRayToSphere );
     float fpD = fpB * fpB - fpC + fpRadiusSquared; 
-    return fpD > 0 ? sqrt(fpB) : -2e32f;
+    return fpD > 0 ? sqrtf(fpB) : -2e32f;
 
 }
 

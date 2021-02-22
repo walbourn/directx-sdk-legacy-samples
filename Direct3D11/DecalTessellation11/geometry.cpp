@@ -18,9 +18,9 @@ void AssignProjections( Triangle* pTri )
 {
    D3DXVECTOR3 N;
 
-   N.x = abs( pTri->faceNormal.x );
-   N.y = abs( pTri->faceNormal.y );
-   N.z = abs( pTri->faceNormal.z );
+   N.x = fabsf( pTri->faceNormal.x );
+   N.y = fabsf( pTri->faceNormal.y );
+   N.z = fabsf( pTri->faceNormal.z );
 
     if( N.x > N.y )
     {
@@ -471,7 +471,7 @@ bool RayCastForDecalPosition( Ray ray, Model model, D3DXVECTOR3* pLocation, Tria
     {
         Triangle* pTri = &model.triArray[i];
         float NdotD = D3DXVec3Dot( &pTri->faceNormal, &ray.direction );
-        if( abs( NdotD ) < epsilon )
+        if(fabsf( NdotD ) < epsilon )
         {
             // ray is parallel or nearly parallel to polygon plane
             continue;
@@ -515,7 +515,7 @@ bool RayCastForDecalPosition( Ray ray, Model model, D3DXVECTOR3* pLocation, Tria
         u2 = pTri->v2Proj.x - pTri->v0Proj.x;
         v1 = pTri->v1Proj.y - pTri->v0Proj.y;
         v2 = pTri->v2Proj.y - pTri->v0Proj.y;
-        if( abs( u1 ) < epsilon )
+        if(fabsf( u1 ) < epsilon )
         {
             beta = u0/u2;
             if( (beta >= 0) && (beta <= 1) )
@@ -583,9 +583,9 @@ void CreateOrthonormalBasis( D3DXVECTOR3* v, D3DXVECTOR3* vNormal, D3DXVECTOR3* 
    D3DXVECTOR3 vB;
    D3DXVECTOR3 vT;
 
-   vAbsN.x = abs( v->x );
-   vAbsN.y = abs( v->y );
-   vAbsN.z = abs( v->z );
+   vAbsN.x = fabsf( v->x );
+   vAbsN.y = fabsf( v->y );
+   vAbsN.z = fabsf( v->z );
 
    // the normal is a vector in the opposite direction of v
    vN.x = -v->x;
