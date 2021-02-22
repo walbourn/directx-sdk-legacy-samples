@@ -355,9 +355,9 @@ void CreateSpectrogram( ID3D10Device* pd3dDevice )
     {
         UINT istep = mmax << 1;
         theta = 6.28318530717959f / ( ( float )mmax * 2.0f );
-        wtemp = sin( 0.5f * theta );
+        wtemp = sinf( 0.5f * theta );
         wpr = -2.0f * wtemp * wtemp;
-        wpi = sin( theta );
+        wpi = sinf( theta );
         wr = 1.0f;
         wi = 0.0f;
 
@@ -696,10 +696,10 @@ HRESULT SaveSpectogramToFile( ID3D10Device* pd3dDevice, LPCTSTR szFileName, ID3D
         ulIndex = ( unsigned long )( h * map.RowPitch / sizeof( float ) );
         for( unsigned long w = 0; w < iWidth; w++ )
         {
-            if( fMaxReal < fabs( pColors[ ulIndex ] ) )
-                fMaxReal = fabs( pColors[ ulIndex ] );
-            if( fMaxImag < fabs( pColors[ ulIndex + 1 ] ) )
-                fMaxImag = fabs( pColors[ ulIndex + 1 ] );
+            if( fMaxReal < fabsf( pColors[ ulIndex ] ) )
+                fMaxReal = fabsf( pColors[ ulIndex ] );
+            if( fMaxImag < fabsf( pColors[ ulIndex + 1 ] ) )
+                fMaxImag = fabsf( pColors[ ulIndex + 1 ] );
 
             ulIndex += 2;
         }
@@ -718,8 +718,8 @@ HRESULT SaveSpectogramToFile( ID3D10Device* pd3dDevice, LPCTSTR szFileName, ID3D
         {
             ulIndex = ( unsigned long )( h * map.RowPitch / sizeof( float ) ) + w;
 
-            fBlue = fabs( pColors[ ulIndex ] ) / fMaxReal;
-            fGreen = fabs( pColors[ ulIndex + 1 ] ) / fMaxImag;
+            fBlue = fabsf( pColors[ ulIndex ] ) / fMaxReal;
+            fGreen = fabsf( pColors[ ulIndex + 1 ] ) / fMaxImag;
             if( fBlue > 1.0f )
                 fBlue = 1.0f;
             if( fGreen > 1.0f )

@@ -170,11 +170,11 @@ void CBreakableWall::CreateExplosion( D3DXVECTOR3 vCenter, D3DXVECTOR3 vDirMul, 
         // center of gravity
         D3DXVECTOR3 vCOG = m_ChunkMesh[i].vPosition;// + m_ChunkMesh[i].BS.vCenter*fWallScale;
         vDelta = vCOG - vCenter;
-        float fDist = D3DXVec3LengthSq( &vDelta );
+        float fDist2 = D3DXVec3LengthSq( &vDelta );
         float fChunkRad = m_ChunkMesh[i].BS.fRadius * fWallScale;
         f2Rad = fRadius + fChunkRad;
 
-        if( fDist < f2Rad * f2Rad )
+        if( fDist2 < f2Rad * f2Rad )
         {
             // We're in motion
             m_ChunkMesh[i].bDynamic = true;
@@ -182,10 +182,10 @@ void CBreakableWall::CreateExplosion( D3DXVECTOR3 vCenter, D3DXVECTOR3 vDirMul, 
             // Set velocity
             D3DXVec3Normalize( &vDelta, &vDelta );
 
-            fDist -= fChunkRad * fChunkRad;
+            fDist2 -= fChunkRad * fChunkRad;
 
-            float fPowerLerp = fabs( RPercent() );
-            float fPower = ( fMaxPower * fPowerLerp + fMinPower * ( 1.0f - fPowerLerp ) );// / sqrt(fDist);
+            float fPowerLerp = fabsf( RPercent() );
+            float fPower = ( fMaxPower * fPowerLerp + fMinPower * ( 1.0f - fPowerLerp ) );// / sqrt(fDist2);
 
             m_ChunkMesh[i].vVelocity = vDelta * fPower;
             m_ChunkMesh[i].vVelocity.x *= vDirMul.x;

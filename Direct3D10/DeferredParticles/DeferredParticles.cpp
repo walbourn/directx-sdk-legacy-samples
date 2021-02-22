@@ -349,7 +349,7 @@ void CALLBACK OnFrameMove( double fTime, float fElapsedTime, void* pUserContext 
             vCenter.x = RPercent() * g_fWorldBounds;
             vCenter.y = g_fGroundPlane;
             vCenter.z = RPercent() * g_fWorldBounds;
-            float fStartTime = -fabs( RPercent() ) * 4.0f;
+            float fStartTime = -fabsf( RPercent() ) * 4.0f;
             D3DXVECTOR4 vFlashColor = g_vFlashColor[ rand() % MAX_FLASH_COLORS ];
 
             g_ppParticleSystem[i]->SetCenter( vCenter );
@@ -386,7 +386,7 @@ void CALLBACK OnFrameMove( double fTime, float fElapsedTime, void* pUserContext 
             vCenter.x = RPercent() * g_fWorldBounds;
             vCenter.y = g_fGroundPlane;
             vCenter.z = RPercent() * g_fWorldBounds;
-            float fStartTime = -fabs( RPercent() ) * 4.0f;
+            float fStartTime = -fabsf( RPercent() ) * 4.0f;
             D3DXVECTOR4 vFlashColor = g_vFlashColor[ rand() % MAX_FLASH_COLORS ];
 
             float fStartSpeed = g_fGroundBurstStartSpeed + RPercent() * 30.0f;
@@ -420,7 +420,7 @@ void CALLBACK OnFrameMove( double fTime, float fElapsedTime, void* pUserContext 
             vCenter.x = RPercent() * g_fWorldBounds;
             vCenter.y = g_fGroundPlane;
             vCenter.z = RPercent() * g_fWorldBounds;
-            float fStartTime = -fabs( RPercent() ) * 4.0f;
+            float fStartTime = -fabsf( RPercent() ) * 4.0f;
             D3DXVECTOR4 vFlashColor = g_vFlashColor[ rand() % MAX_FLASH_COLORS ];
 
             float fStartSpeed = g_fLandMineStartSpeed + RPercent() * 100.0f;

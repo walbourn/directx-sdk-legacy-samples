@@ -330,7 +330,7 @@ void CParticleSystem::Init()
         m_pParticles[i].vPos += m_vCenter;
 
         m_pParticles[i].vDir.x = RPercent();
-        m_pParticles[i].vDir.y = fabs( RPercent() );
+        m_pParticles[i].vDir.y = fabsf( RPercent() );
         m_pParticles[i].vDir.z = RPercent();
         m_pParticles[i].vDir.x *= m_vDirMul.x;
         m_pParticles[i].vDir.y *= m_vDirMul.y;
@@ -365,9 +365,9 @@ void CParticleSystem::AdvanceSystem( float fTime, float fElapsedTime, D3DXVECTOR
         {
             float t = m_pParticles[i].fLife / m_fLifeSpan;
             float tm1 = t - 1.0f;
-            float fSizeLerp = 1.0f - pow( tm1, m_fSizeExponent );
-            float fSpeedLerp = 1.0f - pow( tm1, m_fSpeedExponent );
-            float fFadeLerp = 1.0f - pow( tm1, m_fFadeExponent );
+            float fSizeLerp = 1.0f - powf( tm1, m_fSizeExponent );
+            float fSpeedLerp = 1.0f - powf( tm1, m_fSpeedExponent );
+            float fFadeLerp = 1.0f - powf( tm1, m_fFadeExponent );
 
             float fSize = fSizeLerp * m_fEndSize + ( 1.0f - fSizeLerp ) * m_fStartSize;
             float fSpeed = fSpeedLerp * m_fEndSpeed + ( 1.0f - fSpeedLerp ) * m_fStartSpeed;
@@ -432,7 +432,7 @@ void CMushroomParticleSystem::Init()
         m_pParticles[i].vPos += m_vCenter;
 
         m_pParticles[i].vDir.x = RPercent();
-        m_pParticles[i].vDir.y = fabs( RPercent() );
+        m_pParticles[i].vDir.y = fabsf( RPercent() );
         m_pParticles[i].vDir.z = RPercent();
         m_pParticles[i].vDir.x *= m_vDirMul.x;
         m_pParticles[i].vDir.y *= m_vDirMul.y;
@@ -467,9 +467,9 @@ void CMushroomParticleSystem::AdvanceSystem( float fTime, float fElapsedTime, D3
         {
             float t = m_pParticles[i].fLife / m_fLifeSpan;
             float tm1 = t - 1.0f;
-            float fSizeLerp = 1.0f - pow( tm1, m_fSizeExponent );
-            float fSpeedLerp = 1.0f - pow( tm1, m_fSpeedExponent );
-            float fFadeLerp = 1.0f - pow( tm1, m_fFadeExponent );
+            float fSizeLerp = 1.0f - powf( tm1, m_fSizeExponent );
+            float fSpeedLerp = 1.0f - powf( tm1, m_fSpeedExponent );
+            float fFadeLerp = 1.0f - powf( tm1, m_fFadeExponent );
 
             float fSize = fSizeLerp * m_fEndSize + ( 1.0f - fSizeLerp ) * m_fStartSize;
             float fSpeed = fSpeedLerp * m_fEndSpeed + ( 1.0f - fSpeedLerp ) * m_fStartSpeed;
@@ -546,7 +546,7 @@ void CStalkParticleSystem::Init()
         m_pParticles[i].vPos += m_vCenter;
 
         m_pParticles[i].vDir.x = RPercent();
-        m_pParticles[i].vDir.y = fabs( RPercent() );
+        m_pParticles[i].vDir.y = fabsf( RPercent() );
         m_pParticles[i].vDir.z = RPercent();
         m_pParticles[i].vDir.x *= m_vDirMul.x;
         m_pParticles[i].vDir.y *= m_vDirMul.y;
@@ -581,9 +581,9 @@ void CStalkParticleSystem::AdvanceSystem( float fTime, float fElapsedTime, D3DXV
         {
             float t = m_pParticles[i].fLife / m_fLifeSpan;
             float tm1 = t - 1.0f;
-            float fSizeLerp = 1.0f - pow( tm1, m_fSizeExponent );
-            float fSpeedLerp = 1.0f - pow( tm1, m_fSpeedExponent );
-            float fFadeLerp = 1.0f - pow( tm1, m_fFadeExponent );
+            float fSizeLerp = 1.0f - powf( tm1, m_fSizeExponent );
+            float fSpeedLerp = 1.0f - powf( tm1, m_fSpeedExponent );
+            float fFadeLerp = 1.0f - powf( tm1, m_fFadeExponent );
 
             float fSize = fSizeLerp * m_fEndSize + ( 1.0f - fSizeLerp ) * m_fStartSize;
             float fSpeed = fSpeedLerp * m_fEndSpeed + ( 1.0f - fSpeedLerp ) * m_fStartSpeed;
@@ -724,9 +724,9 @@ void CGroundBurstParticleSystem::AdvanceSystem( float fTime, float fElapsedTime,
         {
             float t = m_pParticles[i].fLife / m_fLifeSpan;
             float tm1 = t - 1.0f;
-            float fSizeLerp = 1.0f - pow( tm1, m_fSizeExponent );
-            float fSpeedLerp = pow( tm1, m_fSpeedExponent );
-            float fFadeLerp = 1.0f - pow( tm1, m_fFadeExponent );
+            float fSizeLerp = 1.0f - powf( tm1, m_fSizeExponent );
+            float fSpeedLerp = powf( tm1, m_fSpeedExponent );
+            float fFadeLerp = 1.0f - powf( tm1, m_fFadeExponent );
             float fFade = fFadeLerp;
 
             D3DXVECTOR3 vDelta = m_pParticles[i].vPos - m_vCenter;
@@ -852,9 +852,9 @@ void CLandMineParticleSystem::AdvanceSystem( float fTime, float fElapsedTime, D3
         {
             float t = m_pParticles[i].fLife / m_fLifeSpan;
             float tm1 = t - 1.0f;
-            float fSizeLerp = 1.0f - pow( tm1, m_fSizeExponent );
-            float fSpeedLerp = pow( tm1, m_fSpeedExponent );
-            float fFadeLerp = 1.0f - pow( tm1, m_fFadeExponent );
+            float fSizeLerp = 1.0f - powf( tm1, m_fSizeExponent );
+            float fSpeedLerp = powf( tm1, m_fSpeedExponent );
+            float fFadeLerp = 1.0f - powf( tm1, m_fFadeExponent );
 
             float fFade = fFadeLerp;
 

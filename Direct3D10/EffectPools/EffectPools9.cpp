@@ -257,10 +257,10 @@ void CALLBACK OnD3D9FrameRender( IDirect3DDevice9* pd3dDevice, double fTime, flo
         // Draw the meshes for each effect
         for( int i = 0; i < NUM_EFFECTS; i++ )
         {
-            D3DXMATRIX mWorld;
-            D3DXMatrixTranslation( &mWorld, ( i - 1 ) * 2.0f, 0.0f, 0.0f );
+            D3DXMATRIX mWorld2;
+            D3DXMatrixTranslation( &mWorld2, ( i - 1 ) * 2.0f, 0.0f, 0.0f );
 
-            g_EffectData[i].pEffect->SetMatrix( g_EffectData[i].hmWorld, &mWorld );
+            g_EffectData[i].pEffect->SetMatrix( g_EffectData[i].hmWorld, &mWorld2 );
             g_EffectData[i].pEffect->SetVector( g_EffectData[i].hMaterialDiffuseColor, &g_vDiffuseColors[i] );
             g_Mesh.Render( pd3dDevice, g_EffectData[i].pEffect, g_EffectData[i].hRenderScene );
         }

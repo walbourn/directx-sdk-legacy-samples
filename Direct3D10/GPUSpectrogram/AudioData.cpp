@@ -300,7 +300,7 @@ bool CAudioData::NormalizeData()
         for( unsigned long i = 0; i < m_ulNumSamples; i++ )
         {
             if( fabs( m_ppChannel[ ulChannel ][i] ) > fSampleMax )
-                fSampleMax = fabs( m_ppChannel[ ulChannel ][i] );
+                fSampleMax = fabsf( m_ppChannel[ ulChannel ][i] );
         }
 
         // Normalize
