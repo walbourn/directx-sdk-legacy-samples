@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="Resource Files">
+<UniqueIdentifier>{8e114980-c1a3-4ada-ad7c-83caadf5daeb}</UniqueIdentifier>
+<Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+</Filter>
+<Filter Include="DXUT">
+<UniqueIdentifier>{a43c5c25-0e86-4a20-b64a-883785ff74fd}</UniqueIdentifier>
+</Filter>
+<Filter Include="Shaders">
+<UniqueIdentifier>{2c3d4c8c-5d1a-459a-a05a-a4e4b608a44e}</UniqueIdentifier>
+<Extensions>fx;fxh;hlsl</Extensions>
+</Filter>
+</ItemGroup>
+<ItemGroup>
+<None Include="..\..\DXUT11\Optional\directx.ico">
+<Filter>Resource Files</Filter>
+</None>
+<ClInclude Include="..\..\DXUT11\Core\DXUT.h">
+<Filter>DXUT</Filter>
+</ClInclude>
+<ClInclude Include="..\..\DXUT11\Core\DXUTDevice11.h">
+<Filter>DXUT</Filter>
+</ClInclude>
+<ClInclude Include="..\..\DXUT11\Core\DXUTDevice9.h">
+<Filter>DXUT</Filter>
+</ClInclude>
+<ClInclude Include="..\..\DXUT11\Core\DXUTmisc.h">
+<Filter>DXUT</Filter>
+</ClInclude>
+<ClCompile Include="..\..\DXUT11\Core\DXUT.cpp">
+<Filter>DXUT</Filter>
+</ClCompile>
+<ClCompile Include="..\..\DXUT11\Core\DXUTDevice11.cpp">
+<Filter>DXUT</Filter>
+</ClCompile>
+<ClCompile Include="..\..\DXUT11\Core\DXUTDevice9.cpp">
+<Filter>DXUT</Filter>
+</ClCompile>
+<ClCompile Include="..\..\DXUT11\Core\DXUTmisc.cpp">
+<Filter>DXUT</Filter>
+</ClCompile>
+<ClInclude Include="..\..\DXUT11\Optional\DXUTcamera.h">
+<Filter>DXUT</Filter>
+</ClInclude>
+<ClInclude Include="..\..\DXUT11\Optional\DXUTgui.h">
+<Filter>DXUT</Filter>
+</ClInclude>
+<ClInclude Include="..\..\DXUT11\Optional\DXUTres.h">
+<Filter>DXUT</Filter>
+</ClInclude>
+<ClInclude Include="..\..\DXUT11\Optional\DXUTsettingsdlg.h">
+<Filter>DXUT</Filter>
+</ClInclude>
+<ClInclude Include="..\..\DXUT11\Optional\SDKmesh.h">
+<Filter>DXUT</Filter>
+</ClInclude>
+<ClInclude Include="..\..\DXUT11\Optional\SDKmisc.h">
+<Filter>DXUT</Filter>
+</ClInclude>
+<ClCompile Include="..\..\DXUT11\Optional\DXUTcamera.cpp">
+<Filter>DXUT</Filter>
+</ClCompile>
+<ClCompile Include="..\..\DXUT11\Optional\DXUTgui.cpp">
+<Filter>DXUT</Filter>
+</ClCompile>
+<ClCompile Include="..\..\DXUT11\Optional\DXUTres.cpp">
+<Filter>DXUT</Filter>
+</ClCompile>
+<ClCompile Include="..\..\DXUT11\Optional\DXUTsettingsdlg.cpp">
+<Filter>DXUT</Filter>
+</ClCompile>
+<ClCompile Include="..\..\DXUT11\Optional\SDKmesh.cpp">
+<Filter>DXUT</Filter>
+</ClCompile>
+<ClCompile Include="..\..\DXUT11\Optional\SDKmisc.cpp">
+<Filter>DXUT</Filter>
+</ClCompile>
+</ItemGroup>
+<ItemGroup>
+      <ClCompile Include="SimpleSample11.cpp" />
+      <ClCompile Include="SimpleSample9.cpp" />
+  </ItemGroup>
+<ItemGroup>
+      <None Include="SimpleSample.hlsl">
+<Filter>Shaders</Filter>
+</None>
+      <None Include="SimpleSample.fx">
+<Filter>Shaders</Filter>
+</None>
+  </ItemGroup>
+<ItemGroup>
+      <CLInclude Include="resource.h">
+<Filter>Resource Files</Filter>
+</CLInclude>
+      <ResourceCompile Include="SimpleSample.rc">
+<Filter>Resource Files</Filter>
+</ResourceCompile>
+  </ItemGroup>
+<ItemGroup>
+</ItemGroup>
+</Project>
