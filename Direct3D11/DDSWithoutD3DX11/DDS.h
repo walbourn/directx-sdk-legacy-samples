@@ -13,7 +13,6 @@
 #define _DDS_H_
 
 #include <dxgiformat.h>
-#include <d3d11.h>
 
 #pragma pack(push,1)
 
@@ -77,6 +76,9 @@ const DDS_PIXELFORMAT DDSPF_DX10 =
 #define DDS_HEADER_FLAGS_PITCH          0x00000008  // DDSD_PITCH
 #define DDS_HEADER_FLAGS_LINEARSIZE     0x00080000  // DDSD_LINEARSIZE
 
+#define DDS_HEIGHT 0x00000002 // DDSD_HEIGHT
+#define DDS_WIDTH  0x00000004 // DDSD_WIDTH
+
 #define DDS_SURFACE_FLAGS_TEXTURE 0x00001000 // DDSCAPS_TEXTURE
 #define DDS_SURFACE_FLAGS_MIPMAP  0x00400008 // DDSCAPS_COMPLEX | DDSCAPS_MIPMAP
 #define DDS_SURFACE_FLAGS_CUBEMAP 0x00000008 // DDSCAPS_COMPLEX
@@ -92,29 +94,47 @@ const DDS_PIXELFORMAT DDSPF_DX10 =
                                DDS_CUBEMAP_POSITIVEY | DDS_CUBEMAP_NEGATIVEY |\
                                DDS_CUBEMAP_POSITIVEZ | DDS_CUBEMAP_NEGATIVEZ )
 
+#define DDS_CUBEMAP 0x00000200 // DDSCAPS2_CUBEMAP
+
 #define DDS_FLAGS_VOLUME 0x00200000 // DDSCAPS2_VOLUME
+
+// Subset here matches D3D10_RESOURCE_DIMENSION and D3D11_RESOURCE_DIMENSION
+typedef enum DDS_RESOURCE_DIMENSION
+{
+    DDS_DIMENSION_TEXTURE1D	= 2,
+    DDS_DIMENSION_TEXTURE2D	= 3,
+    DDS_DIMENSION_TEXTURE3D	= 4,
+} DDS_RESOURCE_DIMENSION;
+
+// Subset here matches D3D10_RESOURCE_MISC_FLAG and D3D11_RESOURCE_MISC_FLAG
+typedef enum DDS_RESOURCE_MISC_FLAG
+{
+   DDS_RESOURCE_MISC_TEXTURECUBE = 0x4L,
+} DDS_RESOURCE_MISC_FLAG;
 
 typedef struct
 {
     DWORD dwSize;
-    DWORD dwHeaderFlags;
+    DWORD dwFlags;
     DWORD dwHeight;
     DWORD dwWidth;
     DWORD dwPitchOrLinearSize;
-    DWORD dwDepth; // only if DDS_HEADER_FLAGS_VOLUME is set in dwHeaderFlags
+    DWORD dwDepth; // only if DDS_HEADER_FLAGS_VOLUME is set in dwFlags
     DWORD dwMipMapCount;
     DWORD dwReserved1[11];
     DDS_PIXELFORMAT ddspf;
-    DWORD dwSurfaceFlags;
-    DWORD dwCubemapFlags;
-    DWORD dwReserved2[3];
+    DWORD dwCaps;
+    DWORD dwCaps2;
+    DWORD dwCaps3;
+    DWORD dwCaps4;
+    DWORD dwReserved2;
 } DDS_HEADER;
 
 typedef struct
 {
     DXGI_FORMAT dxgiFormat;
-    D3D11_RESOURCE_DIMENSION resourceDimension;
-    UINT miscFlag;
+    UINT resourceDimension;
+    DWORD miscFlag; // see DDS_RESOURCE_MISC_FLAG
     UINT arraySize;
     UINT reserved;
 } DDS_HEADER_DXT10;
