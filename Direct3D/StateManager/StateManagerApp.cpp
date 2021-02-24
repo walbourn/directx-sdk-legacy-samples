@@ -14,7 +14,6 @@
 #pragma warning(disable: 4995)
 #include "resource.h"
 
-
 //--------------------------------------------------------------------------------------
 // Defines custom interface to a sample implementation of the ID3DXEffectStateManager
 // interface
@@ -40,7 +39,7 @@
 #include "LoadSceneFromX.h"
 #pragma warning(default: 4995)
 
-
+#pragma warning(disable : 4316)
 
 //--------------------------------------------------------------------------------------
 // Global variables

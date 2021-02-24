@@ -9,6 +9,8 @@
 #include "SDKmisc.h"
 #include "resource.h"
 
+#pragma warning(disable : 4316)
+
 //#define DEBUG_VS   // Uncomment this line to debug vertex shaders 
 //#define DEBUG_PS   // Uncomment this line to debug pixel shaders 
 

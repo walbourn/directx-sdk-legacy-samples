@@ -403,7 +403,7 @@ void CAsyncLoader::ProcessDeviceWorkItems( UINT CurrentNumResourcesToService, BO
         {
             if( !ResourceRequest.bError )
             {
-                HRESULT hr = ResourceRequest.pDataProcessor->UnLockDeviceObject();
+                hr = ResourceRequest.pDataProcessor->UnLockDeviceObject();
                 if( ResourceRequest.pHR )
                     *ResourceRequest.pHR = hr;
             }

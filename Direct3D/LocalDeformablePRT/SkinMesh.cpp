@@ -8,6 +8,7 @@
 #include "DXUT.h"
 #include "skinmesh.h"
 
+#pragma warning(disable : 4316)
 
 //--------------------------------------------------------------------------------------
 // Name: AllocateName()

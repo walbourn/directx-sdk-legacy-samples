@@ -12,6 +12,7 @@
 //#define DEBUG_VS   // Uncomment this line to debug vertex shaders 
 //#define DEBUG_PS   // Uncomment this line to debug pixel shaders 
 
+#pragma warning(disable : 4316)
 
 //-----------------------------------------------------------------------------
 // Globals variables and definitions
