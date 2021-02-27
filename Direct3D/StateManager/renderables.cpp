@@ -5,7 +5,8 @@
 // These classes serve in support of the sample, but are not directly related to the
 // intended topic of the ID3DXEffectStateManager Interface.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #include "DXUT.h"
 #include "SDKmisc.h"

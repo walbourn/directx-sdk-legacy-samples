@@ -1,5 +1,6 @@
 // ShadowVolume10.fx
-// Copyright (c) 2005 Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //
 
 #define LIGHT_FALLOFF 1.2f

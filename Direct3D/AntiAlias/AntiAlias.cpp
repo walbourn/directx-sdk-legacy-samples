@@ -10,7 +10,8 @@
 // artifact. Support for centroid sampling is supported under Pixel Shader 2.0 in the 
 // latest version of the DirectX runtime.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #include "DXUT.h"
 #include "DXUTgui.h"

@@ -4,7 +4,8 @@
 // Magnify class definition. This class magnifies a region of a given surface, and renders a scaled 
 // sprite at the given position on the screen.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 
 #ifndef _MAGNIFY_H_

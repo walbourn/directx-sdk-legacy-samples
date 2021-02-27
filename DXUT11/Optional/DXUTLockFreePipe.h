@@ -7,7 +7,8 @@
 // http://msdn2.microsoft.com/en-us/library/bb310595.aspx
 //
 // XNA Developer Connection
-// Copyright (C) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #pragma once
 

@@ -3,7 +3,8 @@
 //
 // Desc: The technique RenderFullA renders the scene with convolution coefficients
 // 
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------

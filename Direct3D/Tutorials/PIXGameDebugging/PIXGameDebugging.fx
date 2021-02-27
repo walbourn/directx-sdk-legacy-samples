@@ -3,7 +3,8 @@
 //
 // The effect file for the PIXGameDebugging sample.  
 // 
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 
 #define WATERCOLOR 0x00006688

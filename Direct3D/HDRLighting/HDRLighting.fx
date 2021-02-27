@@ -8,7 +8,10 @@
 //       map the high dynamic range of colors to a range displayable on a PC
 //       monitor, and perform post-process lighting effects. 
 //
-// The algorithms described in this sample are based very closely on the // lighting effects implemented in Masaki Kawase's Rthdribl sample and the tone // mapping process described in the whitepaper "Tone Reproduction for Digital // Images"
+// The algorithms described in this sample are based very closely on the 
+// lighting effects implemented in Masaki Kawase's Rthdribl sample and the tone 
+// mapping process described in the whitepaper "Tone Reproduction for Digital 
+// Images"
 //
 // Real-Time High Dynamic Range Image-Based Lighting (Rthdribl)
 // Masaki Kawase
@@ -18,7 +21,8 @@
 // Erik Reinhard, Mike Stark, Peter Shirley and Jim Ferwerda
 // http://www.cs.utah.edu/~reinhard/cdrom/ 
 // 
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 

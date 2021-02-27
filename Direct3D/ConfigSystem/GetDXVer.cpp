@@ -4,7 +4,8 @@
 // Desc: Demonstrates how applications can detect what version of DirectX
 //       is installed.
 //
-// (C) Copyright Microsoft Corp.  All rights reserved.
+// // Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #include "dxut.h"
 #pragma warning(disable: 4995)

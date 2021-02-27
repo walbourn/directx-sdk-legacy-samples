@@ -5,7 +5,8 @@
 //       buffers. Feel free to use these classes as a starting point for adding
 //       extra functionality.
 //
-// Copyright (c) Microsoft Corp. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #define STRICT
 #include "DXUT.h"

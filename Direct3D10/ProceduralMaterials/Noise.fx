@@ -7,7 +7,8 @@
 // For a good explaination of the simplex noise algorithm see
 // http://staffwww.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf
 // 
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 Texture2D<float>   g_txRandomByte;   // permutation texture
 Texture1D<float4>  g_txRandVector;	 // random 1D texture of random vectors used for voronoi noise

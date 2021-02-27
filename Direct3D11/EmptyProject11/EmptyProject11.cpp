@@ -3,7 +3,8 @@
 //
 // Empty starting point for new Direct3D 9 and/or Direct3D 11 applications
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #include "DXUT.h"
 

@@ -1,7 +1,8 @@
 //----------------------------------------------------------------------------
 // File: DXUTRes.cpp
 //
-// Copyright (c) Microsoft Corp. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #include "DXUT.h"
 #include "DXUTres.h"

@@ -3,7 +3,8 @@
 //
 // The effect file for the DepthOfField10.1 sample.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 
 struct VSSceneIn

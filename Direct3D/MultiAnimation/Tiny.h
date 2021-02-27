@@ -3,7 +3,8 @@
 //
 // Desc: Header file for the CTiny class.  Its declaraction is found here.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 

@@ -21,7 +21,8 @@
 //       of D3DX's useful matrix initialization functions. To use D3DX, simply
 //       include <d3dx9.h> and link with d3dx9.lib.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #include <Windows.h>
 #include <mmsystem.h>

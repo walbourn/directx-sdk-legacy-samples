@@ -3,7 +3,8 @@
 //
 // The effect file for the SoftShadow sample.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 
 #define MAX_TIME_STEPS 3

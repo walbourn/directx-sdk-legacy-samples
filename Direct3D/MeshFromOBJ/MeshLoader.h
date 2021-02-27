@@ -4,7 +4,8 @@
 // Wrapper class for ID3DXMesh interface. Handles loading mesh data from an .obj file
 // and resource management for material textures.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #ifndef _MESHLOADER_H_
 #define _MESHLOADER_H_

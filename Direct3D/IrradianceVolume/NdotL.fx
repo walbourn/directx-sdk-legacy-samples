@@ -4,7 +4,8 @@
 // Desc: The technique SimpleLighting renders the
 //		 scene with standard N.L lighting.
 // 
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 

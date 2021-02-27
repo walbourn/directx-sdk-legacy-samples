@@ -6,7 +6,8 @@
 //       vertex diffuse alpha channel.  A post process pixel shader is
 //       then used to blur the scene based on the render target's alpha value.
 // 
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 

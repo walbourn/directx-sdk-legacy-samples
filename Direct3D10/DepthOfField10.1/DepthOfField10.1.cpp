@@ -1,7 +1,8 @@
 //--------------------------------------------------------------------------------------
 // File: DepthOfField10.1.cpp
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #include "dxut.h"
 #include "DXUTCamera.h"

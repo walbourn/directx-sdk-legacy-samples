@@ -4,7 +4,8 @@
 // These shaders demonstrate the use of the DX10.1 Gather instruction to accelerate the
 // HDAO technique 
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 
 

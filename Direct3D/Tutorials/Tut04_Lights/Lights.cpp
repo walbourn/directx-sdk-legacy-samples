@@ -12,7 +12,8 @@
 //       Surface normals are part of a vertex, and are needed for the D3D's
 //       internal lighting calculations.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #include <Windows.h>
 #include <mmsystem.h>

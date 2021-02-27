@@ -9,7 +9,8 @@
 //       are already in 2D window coordinates) and lit (meaning we are not
 //       using Direct3D lighting, but are supplying our own colors).
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #include <d3d9.h>
 #pragma warning( disable : 4996 ) // disable deprecated warning 

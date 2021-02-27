@@ -3,7 +3,8 @@
 //
 // HLSL file containing shader function to render front-facing particles.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #include "Shader_include.hlsl"
 

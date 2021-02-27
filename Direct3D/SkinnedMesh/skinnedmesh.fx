@@ -1,6 +1,7 @@
 //
 // Skinned Mesh Effect file 
-// Copyright (c) 2000-2002 Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //
 
 float4 lhtDir = {0.0f, 0.0f, -1.0f, 1.0f};    //light Direction 

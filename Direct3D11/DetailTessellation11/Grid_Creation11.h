@@ -3,7 +3,8 @@
 //
 // Header file for Grid_Creation11.cpp
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #ifndef GRID_CREATION11_H
 #define GRID_CREATION11_H

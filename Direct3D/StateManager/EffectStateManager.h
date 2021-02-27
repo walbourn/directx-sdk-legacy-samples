@@ -3,7 +3,8 @@
 //
 // Base implementation of a custom ID3DXEffectStateManager interface
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #pragma once
 #ifndef _EFFECTSTATEMANAGER_H_

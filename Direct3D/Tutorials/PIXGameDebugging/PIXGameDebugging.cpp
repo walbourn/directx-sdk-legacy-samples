@@ -4,7 +4,8 @@
 // This sample was used for the GDC 2008 presentation:
 // "Beyond Printf: Debugging Games Through Tools"
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #include "DXUT.h"
 #pragma warning( disable:4995 ) // disable deprecated warning 

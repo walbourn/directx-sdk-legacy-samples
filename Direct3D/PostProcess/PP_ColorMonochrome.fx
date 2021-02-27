@@ -5,7 +5,8 @@
 //       a single technique with a pixel shader that converts colored image to
 //       black & white by performing post-processing on a texture.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 

@@ -5,7 +5,8 @@
 // The x-file has been extended to include custom templates for specifying mesh filenames
 // and camera objects within frames.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #include "DXUT.h"
 #pragma warning(disable: 4995)

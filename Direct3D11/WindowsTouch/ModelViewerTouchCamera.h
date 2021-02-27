@@ -3,7 +3,8 @@
 //
 // This class extends the Modelview camera and enables multi touch control
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 
 // Multi-touch requires Windows 7 

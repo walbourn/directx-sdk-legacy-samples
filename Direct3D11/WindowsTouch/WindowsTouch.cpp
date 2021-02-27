@@ -10,7 +10,8 @@
 // The sample uses much of the same code as the Skinning10 sample to draw an animated  
 // unit.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 
 // Multi-touch requires Windows 7 and the Windows SDK for Windows 7 or later

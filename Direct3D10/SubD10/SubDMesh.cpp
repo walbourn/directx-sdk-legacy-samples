@@ -5,7 +5,8 @@
 // The mesh loads .obj files from disk and converts them to a Catmull-Clark patch based
 // format.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #include "DXUT.h"
 #include "SubDMesh.h"

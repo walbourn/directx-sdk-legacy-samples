@@ -4,7 +4,8 @@
 // Magnify class implementation. This class magnifies a region of a given surface, and renders a scaled 
 // sprite at the given position on the screen. 
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 
 #include "DXUT.h"

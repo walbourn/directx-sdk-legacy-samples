@@ -5,7 +5,8 @@
 //       we are doing is creating a Direct3D device and using it to clear the
 //       window.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #include <d3d9.h>
 #pragma warning( disable : 4996 ) // disable deprecated warning 

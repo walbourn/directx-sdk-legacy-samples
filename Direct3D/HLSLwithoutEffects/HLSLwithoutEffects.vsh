@@ -4,7 +4,8 @@
 // Desc: The effect file for the BasicHLSL sample.  It contains a vertex 
 //		 shader which animates the vertices.
 // 
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 

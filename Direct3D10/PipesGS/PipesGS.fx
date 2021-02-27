@@ -1,5 +1,6 @@
 // ParticlesGS.fx
-// Copyright (c) 2005 Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //
 
 struct VSPipeIn

@@ -5,7 +5,8 @@
 //
 // Contributed by AMD Corporation
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 
 #ifndef _SPRITE_H_

@@ -4,7 +4,8 @@
 // MagnifyTool class definition. This class implements a user interface based upon the DXUT framework,
 // for the Magnify class. It exposes all of the functionality.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 
 #ifndef _MAGNIFYTOOL_H_

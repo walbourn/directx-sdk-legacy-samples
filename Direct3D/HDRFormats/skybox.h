@@ -3,7 +3,8 @@
 //
 // Desc: Encapsulation of skybox geometry and textures
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #ifndef _SKYBOX_H
 #define _SKYBOX_H

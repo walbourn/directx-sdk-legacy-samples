@@ -4,7 +4,8 @@
 // This sample shows how an ID3DXEffect object can be compiled when the 
 // project is built and loaded directly as a binary file at run time.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #include "DXUT.h"
 #include "DXUTcamera.h"

@@ -4,7 +4,8 @@
 // Desc: Effect file for image post-processing sample.  This effect contains
 //       a technique that renders a scene with vertex and pixel shaders.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 

@@ -1,7 +1,8 @@
 //-----------------------------------------------------------------------------
 // File: DXUTsound.h
 //
-// Copyright (c) Microsoft Corp. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #ifndef DXUTSOUND_H
 #define DXUTSOUND_H

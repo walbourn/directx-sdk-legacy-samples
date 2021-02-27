@@ -4,7 +4,8 @@
 // This effect file contains functions for creating the Tangent patches as outlined
 // by the ACC technique.
 // 
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------

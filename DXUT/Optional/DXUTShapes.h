@@ -3,7 +3,8 @@
 //
 // Shape creation functions for DXUT
 //
-// Copyright (c) Microsoft Corporation. All rights reserved
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #pragma once
 #ifndef DXUT_SHAPES_H

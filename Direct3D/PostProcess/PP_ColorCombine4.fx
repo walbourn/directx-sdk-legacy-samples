@@ -5,7 +5,8 @@
 //       a single technique with a pixel shader that scales images up 4 times
 //       and combines it with the original scene render buffer.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 

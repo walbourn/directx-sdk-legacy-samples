@@ -4,7 +4,8 @@
 // Desc: Effect file for image post-processing sample.  This effect contains
 //       a single technique with a pixel shader that inverts the colors.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 

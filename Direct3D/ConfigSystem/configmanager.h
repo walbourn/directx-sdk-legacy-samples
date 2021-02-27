@@ -3,7 +3,8 @@
 //
 // Header file containing configuration-related declarations.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #pragma once
 #ifndef __CONFIGMANAGER_H__

@@ -3,7 +3,8 @@
 //
 // Desc: Encapsulation of a light probe
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #ifndef _LIGHTPROBE_H
 #define _LIGHTPROBE_H

@@ -6,7 +6,8 @@
 //
 // XNA Developer Connection
 //
-// Copyright (c) Microsoft Corp. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #define STRICT
 #include "DXUT.h"

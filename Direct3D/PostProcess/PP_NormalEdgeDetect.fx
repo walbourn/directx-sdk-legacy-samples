@@ -5,7 +5,8 @@
 //       a single technique with a pixel shader that detects edges and
 //       highlights them based on the normal of each pixel.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 

@@ -4,7 +4,8 @@
 // Starting point for new Direct3D 11 samples.  For a more basic starting point, 
 // use the EmptyProject11 sample instead.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //--------------------------------------------------------------------------------------
 #include "DXUT.h"
 #include "DXUTgui.h"

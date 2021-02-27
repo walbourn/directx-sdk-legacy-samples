@@ -17,7 +17,8 @@
 // Erik Reinhard, Mike Stark, Peter Shirley and Jim Ferwerda
 // http://www.cs.utah.edu/~reinhard/cdrom/ 
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #include "DXUT.h"
 #include "DXUTcamera.h"

@@ -1,7 +1,8 @@
 //----------------------------------------------------------------------------
 // File: PRTSim.h
 //
-// Copyright (c) Microsoft Corp. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 

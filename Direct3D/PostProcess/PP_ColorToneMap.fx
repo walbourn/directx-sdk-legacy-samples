@@ -5,7 +5,8 @@
 //       a single technique with a pixel shader that performs tone mapping
 //       on the input color texture.
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 
 

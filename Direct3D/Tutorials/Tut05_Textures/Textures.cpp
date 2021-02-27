@@ -22,7 +22,8 @@
 //       supplied by the geometry, or can be automatically generated using
 //       Direct3D texture coordinate generation (which is an advanced feature).
 //
-// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License (MIT).
 //-----------------------------------------------------------------------------
 #include <Windows.h>
 #include <mmsystem.h>
