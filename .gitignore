@@ -28,6 +28,7 @@ packages
 Test
 /wiki
 /Direct3D/CompiledEffect/*.fxo
+/Direct3D10/EffectPools/*.fxo9
 /Direct3D10/EffectPools/*.fxo10
 /Media/misc/*.ldprt
 /Media/misc/*.prt

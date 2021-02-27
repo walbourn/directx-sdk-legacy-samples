@@ -6,13 +6,17 @@ They have been cleaned up to build using the Windows 10 SDK, and _DO NOT_ requir
 
 The DXUT here supports Direct3D 9 and Direct3D 10. The DXUT11 here supports Direct3D 9 and Direct3D 11. Both have been modified to use a locally built dxerr instead of dxerr.lib. For more information, see [this blog post](https://walbourn.github.io/wheres-dxerr-lib/).
 
-For fully cleaned up versions of DXUT11, Direct3D 11 samples/tutorials, and other legacy DirectX SDK samples see [directx-sdk-samples](https://github.com/walbourn/directx-sdk-samples). Those samples do not make use of the legacy D3DX libraries.
+For fully cleaned up and modernized versions of DXUT11, Effects11, Direct3D 11 samples/tutorials, and other legacy DirectX SDK samples see [DXUT](https://github.com/microsoft/DXUT/wiki), [FX11](https://github.com/microsoft/FX11/wiki), and [directx-sdk-samples](https://github.com/walbourn/directx-sdk-samples). Those samples do not make use of the legacy D3DX libraries.
 
 * [Microsoft Docs](https://docs.microsoft.com/en-us/windows/desktop/directx-sdk--august-2009-)* [Where is the DirectX SDK (2021 Edition)?](https://aka.ms/dxsdk)
 * [DirectX SDK Samples Catalog](https://walbourn.github.io/directx-sdk-samples-catalog/)
 * [The Zombie DirectX SDK](https://aka.ms/AA4gfea)
 
+## Notices
+
 All content and source code for this package are subject to the terms of the [MIT License](http://opensource.org/licenses/MIT). Use of the NuGet is subject to it's own license terms.
+
+The ATI Research 3D Application Research Group contributed IrradianceVolume and ParallaxOcclusionMapping.
 
 The AMD Developer Relations Team contributed DepthOfField10.1, HDAO10.1, TransparencyAA10.1, ContactHardeningShadows11, DecalTessellation11, DetailTessellation11, and PNTriangles11.
 
