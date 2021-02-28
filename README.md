@@ -1,6 +1,6 @@
 # DirectX SDK Legacy Samples
 
-This repo contains Direct3D 9, Direct3D 10, and a few Direct3D 11 samples that originally shipped in the legacy DirectX SDK. These are all **Windows desktop** applications for Windows 7 Service Pack 1 or later.
+This repo contains Direct3D 9, Direct3D 10, a few Direct3D 11, and DirectSound samples that originally shipped in the legacy DirectX SDK. These are all **Windows desktop** applications for Windows 7 Service Pack 1 or later.
 
 They have been cleaned up to build using the Windows 10 SDK, and _DO NOT_ require the DirectX SDK to build. They make use of the ``Microsoft.DXSDK.D3DX`` NuGet package for the legacy D3DX9/D3DX10/D3DX11 libraries. Projects for Visual Studio 2019 are provided.
 
@@ -21,6 +21,10 @@ The ATI Research 3D Application Research Group contributed IrradianceVolume and 
 The AMD Developer Relations Team contributed DepthOfField10.1, HDAO10.1, TransparencyAA10.1, ContactHardeningShadows11, DecalTessellation11, DetailTessellation11, and PNTriangles11.
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+## Release notes
+
+* The DirectSound samples use MFC, so with Visual Studio you need to install the *C++ MFC for latest v142 build tools (x86 & x64)* (``Microsoft.VisualStudio.Component.VC.ATLMFC``) optional component.
 
 ## Trademarks
 
