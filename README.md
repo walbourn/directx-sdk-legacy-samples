@@ -2,7 +2,7 @@
 
 This repo contains Direct3D 9, Direct3D 10, a few Direct3D 11, and DirectSound samples that originally shipped in the legacy DirectX SDK. These are all **Windows desktop** applications for Windows 7 Service Pack 1 or later.
 
-They have been cleaned up to build using the Windows 10 SDK, and _DO NOT_ require the DirectX SDK to build. They make use of the ``Microsoft.DXSDK.D3DX`` NuGet package for the legacy D3DX9/D3DX10/D3DX11 libraries. Projects for Visual Studio 2019 are provided.
+They have been cleaned up to build using the Windows 10 SDK, and _DO NOT_ require the DirectX SDK to build. They make use of the [Microsoft.DXSDK.D3DX](https://www.nuget.org/packages/Microsoft.DXSDK.D3DX) NuGet package for the legacy D3DX9/D3DX10/D3DX11 libraries. Projects for Visual Studio 2019 are provided.
 
 The DXUT here supports Direct3D 9 and Direct3D 10. The DXUT11 here supports Direct3D 9 and Direct3D 11. Both have been modified to use a locally built dxerr instead of dxerr.lib. For more information, see [this blog post](https://walbourn.github.io/wheres-dxerr-lib/).
 
