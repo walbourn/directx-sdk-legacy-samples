@@ -88,8 +88,8 @@ VS_OUTPUT RenderSceneVS( float4 vPos : POSITION,
     vNormalWorldSpace = normalize(mul(vNormal, (float3x3)g_mWorld)); // normal (world space)
     
     // Compute simple directional lighting equation
-    Output.Diffuse.rgb = g_MaterialDiffuseColor * g_LightDiffuse * max(0,dot(vNormalWorldSpace, g_LightDir)) + 
-                         g_MaterialAmbientColor * g_LightAmbient;   
+    Output.Diffuse.rgb = g_MaterialDiffuseColor.rgb * g_LightDiffuse.rgb * max(0,dot(vNormalWorldSpace, g_LightDir)) +
+                         g_MaterialAmbientColor.rgb * g_LightAmbient.rgb;
     Output.Diffuse.a = 1.0f; 
     
     // Just copy the texture coordinate through
