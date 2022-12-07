@@ -33,8 +33,8 @@ variables:
   GUID_FEED: $(ADOFeedGUID)
 
 jobs:
-- job: BUILD_SAMPLES
-  displayName: 'Build DirectX SDK (Legacy) samples'
+- job: BUILD_DEBUG
+  displayName: 'Build samples as Debug'
   steps:
   - checkout: self
     clean: true
@@ -56,6 +56,22 @@ jobs:
       msbuildArgs: /p:PreferredToolArchitecture=x64
       platform: x64
       configuration: Debug
+
+- job: BUILD_RELEASE
+  displayName: 'Build samples as Release'
+  steps:
+  - checkout: self
+    clean: true
+    fetchTags: false
+  - task: NuGetToolInstaller@1
+    displayName: 'Use NuGet'
+  - task: NuGetCommand@2
+    displayName: NuGet restore Microsoft.DXSDK.D3DX
+    inputs:
+      solution: Direct3D/AntiAlias/AntiAlias_2019.sln
+      feedRestore: $(GUID_FEED)
+      includeNuGetOrg: false
+      packagesDirectory: $(Build.SourcesDirectory)\packages
   - task: VSBuild@1
     displayName: Build VS 2019 (Release)
     inputs:
